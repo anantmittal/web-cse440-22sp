@@ -1,17 +1,20 @@
-// import {
-//     DateTime,
-//     DateTimeFormatOptions,
-// } from 'luxon';
-// // import { Reading } from '../types/Reading';
-//
-// const DATETIME_OPTIONS_ASSIGNMENT = {
-//     month: 'long',
-//     day: 'numeric',
-//     weekday: 'long'
-// } as DateTimeFormatOptions;
+import {
+    DateTime,
+    DateTimeFormatOptions,
+} from 'luxon';
+
+const DATE_FORMAT_OPTIONS = {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long'
+} as DateTimeFormatOptions;
 
 type link = string | null;
-// type assignmentDate = string | null;
+type dueDate = string | null;
+
+function formatDateString(dateString: string): string {
+    return DateTime.fromISO(dateString).toLocaleString(DATE_FORMAT_OPTIONS);
+}
 
 export class CourseInformationStore {
     //
@@ -26,6 +29,11 @@ export class CourseInformationStore {
 
     // Link to university syllabus policies and guidelines
     linkUniversitySyllabusGuidelines: link = 'https://registrar.washington.edu/staffandfaculty/syllabus-guidelines/';
+
+    // Assignment 0
+    dueDateAssignment0: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-03-31') + '.';
+    linkCanvasAssignment0: link = null;
 
     // // Link regarding accessible presentations
     // // linkAccessiblePresentations: link = 'https://interactions.acm.org/archive/view/july-august-2017/making-your-presentation-accessible'

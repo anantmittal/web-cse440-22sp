@@ -41,7 +41,7 @@ const styleInnerBox: SxProps = {
 // Properties
 //
 interface DefaultLayoutProps extends React.PropsWithChildren<{}> {
-};
+}
 
 /**
  * A simple layout that places content within a Paper.

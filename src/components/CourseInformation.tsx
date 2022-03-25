@@ -16,30 +16,30 @@ import { CourseInformationStore } from "../stores/CourseInformationStore";
 /**
  * Name of the assignment date.
  */
-interface CourseInformationAssignmentDateProps {
-    assignmentDateName: keyof CourseInformationStore;
+interface CourseInformationDueDateProps {
+    dueDateName: keyof CourseInformationStore;
 }
 
 /**
  * Render a named assignment date from the course information.
  */
-export const CourseInformationAssignmentDate: FunctionComponent<CourseInformationAssignmentDateProps> = (props) => {
+export const CourseInformationDueDate: FunctionComponent<CourseInformationDueDateProps> = (props) => {
     const store = useAppStore();
 
     // Check this because TypeScript doesn't ensure in MDX files
-    if (!(props.assignmentDateName in store.courseInformation)) {
-        throw new Error('assignmentDateName must be in store.courseInformation.');
+    if (!(props.dueDateName in store.courseInformation)) {
+        throw new Error('dueDateName must be in store.courseInformation.');
     }
-    if (!(props.assignmentDateName.startsWith('assignmentDate'))) {
-        throw new Error('assignmentDateName must start with "assignmentDate".');
+    if (!(props.dueDateName.startsWith('dueDate'))) {
+        throw new Error('dueDateName must start with "dueDate".');
     }
 
-    const assignmentDateText = store.courseInformation[props.assignmentDateName] as string;
+    const dueDateText = store.courseInformation[props.dueDateName] as string;
 
-    if (assignmentDateText) {
-        return <span>{assignmentDateText}</span>;
+    if (dueDateText) {
+        return <span>{dueDateText}</span>;
     } else {
-        return <Box component="span" sx={{color: "red"}}>Assignment date to be added</Box>;
+        return <Box component="span" sx={{color: "red"}}>Due date to be added</Box>;
     }
 }
 

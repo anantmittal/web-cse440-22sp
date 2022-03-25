@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 
 import { DateTime } from 'luxon';
 
-import { Reading } from '../types/Reading';
+// import { Reading } from '../types/Reading';
 
 // import ContentAvailableExam from '../content/calendar/AvailableExam.mdx';
 // import ContentContributionsInHCI from '../content/calendar/ContributionsInHCI.mdx';
@@ -17,23 +17,28 @@ import { Reading } from '../types/Reading';
 // import ContentProjectProposal from '../content/calendar/ProjectProposal.mdx';
 // import ContentVisionsOfHCI from '../content/calendar/VisionsOfHCI.mdx';
 
+export type CalendarAssignment = string;
+
 type CalendarDateBase = {
     date: DateTime,
-    dateTitle: string,
+    title: string,
+    assignments?: CalendarAssignment[],
+
+
     virtual?: boolean,
     awayJames?: boolean,
     guest?: {
         name: string,
         link: string,
     }
-    additionalResources?: Reading[],
+    // additionalResources?: Reading[],
 }
 
 type CalendarDateContentStandard = CalendarDateBase & {
-    readingsStandard: {
-        framing: Reading,
-        instances: Reading[],
-    }
+    // readingsStandard: {
+    //     framing: Reading,
+    //     instances: Reading[],
+    // }
 }
 
 type CalendarDateContentNonstandard = CalendarDateBase & {
@@ -50,17 +55,21 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-03-29'),
 
-            dateTitle: 'Lecture',
+            title: 'Course Introduction',
         },
         {
             date: DateTime.fromISO('2022-03-31'),
 
-            dateTitle: 'Lecture',
+            title: 'Design Diamond',
+            assignments: [
+                'Introduction Slide',
+                'Project Brainstorm',
+            ]
         },
         {
             date: DateTime.fromISO('2022-04-01'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -69,17 +78,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-04-05'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-07'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-08'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -88,17 +97,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-04-12'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-14'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-15'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -107,17 +116,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-04-19'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-21'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-22'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -126,17 +135,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-04-26'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-28'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-04-29'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -145,17 +154,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-05-03'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-05'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-06'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -164,17 +173,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-05-10'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-12'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-13'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
 
@@ -184,17 +193,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-05-17'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-19'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-20'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -203,17 +212,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-05-24'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-26'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-05-27'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
 
         //
@@ -222,17 +231,17 @@ export class CourseCalendarStore {
         {
             date: DateTime.fromISO('2022-05-31'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-06-02'),
 
-            dateTitle: 'Lecture',
+            title: 'Lecture',
         },
         {
             date: DateTime.fromISO('2022-06-03'),
 
-            dateTitle: 'Section',
+            title: 'Section',
         },
     ];
 }
