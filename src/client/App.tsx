@@ -20,10 +20,7 @@ import Calendar from "src/pages/Calendar.mdx";
 import Home from "src/pages/Home.mdx";
 
 import AssignmentsOverviewWrapper from "../content/assignments/OverviewWrapper.mdx"
-import AssignmentsReadings from "../content/assignments/Readings.mdx"
-import AssignmentsProject from "../content/assignments/Project.mdx"
-import AssignmentsStatisticsLab from "../content/assignments/StatisticsLab.mdx"
-import AssignmentsExam from "../content/assignments/Exam.mdx"
+import Assignment0 from "../content/assignments/assignment0/Assignment0.mdx"
 
 export const App: React.FunctionComponent = () => {
     return (
@@ -47,10 +44,7 @@ export const App: React.FunctionComponent = () => {
                         <Route path="/" element={<Home/>} />
                         <Route path="/assignments" element={<Assignments/>}>
                             <Route path="" element={<AssignmentsOverviewWrapper/>} />
-                            <Route path="readings" element={<AssignmentsReadings/>} />
-                            <Route path="project" element={<AssignmentsProject/>} />
-                            <Route path="statisticslab" element={<AssignmentsStatisticsLab/>} />
-                            <Route path="exam" element={<AssignmentsExam/>} />
+                            <Route path="assignment0" element={<Assignment0/>} />
                         </Route>
                         <Route path="/calendar" element={<Calendar/>} />
                     </Routes>
