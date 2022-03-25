@@ -33,7 +33,7 @@ export class CourseInformationStore {
     // Assignment 0
     dueDateAssignment0: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-03-31') + '.';
-    linkCanvasAssignment0: link = null;
+    linkCanvasAssignment0: link = 'https://canvas.uw.edu/courses/1545349/assignments/7252282';
 
     // // Link regarding accessible presentations
     // // linkAccessiblePresentations: link = 'https://interactions.acm.org/archive/view/july-august-2017/making-your-presentation-accessible'
