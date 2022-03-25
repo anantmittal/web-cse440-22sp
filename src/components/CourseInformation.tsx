@@ -5,9 +5,9 @@ import {
     Box,
 } from "@mui/material";
 
-import { Reading } from '../types/Reading';
-
-import FormattedReading from './FormattedReading';
+// import { Reading } from '../types/Reading';
+//
+// import FormattedReading from './FormattedReading';
 import GeneratedLink from '../common/GeneratedLink';
 
 import { useAppStore } from '../stores/AppStoreProvider';
@@ -43,31 +43,31 @@ export const CourseInformationAssignmentDate: FunctionComponent<CourseInformatio
     }
 }
 
-/**
- * Name of the Reading to be formatted.
- */
-interface CourseInformationFormattedReadingProps {
-    readingName: keyof CourseInformationStore;
-}
-
-/**
- * Render a named Reading from the course information.
- */
-export const CourseInformationFormattedReading: FunctionComponent<CourseInformationFormattedReadingProps> = (props) => {
-    const store = useAppStore();
-
-    // Check this because TypeScript doesn't ensure in MDX files
-    if (props.readingName in store.courseInformation === false) {
-        throw new Error('readingName must be in store.courseInformation.');
-    }
-    if (props.readingName.startsWith('reading') === false) {
-        throw new Error('readingName must start with "reading".');
-    }
-
-    const reading = store.courseInformation[props.readingName] as Reading;
-
-    return <FormattedReading reading={reading} />;
-}
+// /**
+//  * Name of the Reading to be formatted.
+//  */
+// interface CourseInformationFormattedReadingProps {
+//     readingName: keyof CourseInformationStore;
+// }
+//
+// /**
+//  * Render a named Reading from the course information.
+//  */
+// export const CourseInformationFormattedReading: FunctionComponent<CourseInformationFormattedReadingProps> = (props) => {
+//     const store = useAppStore();
+//
+//     // Check this because TypeScript doesn't ensure in MDX files
+//     if (props.readingName in store.courseInformation === false) {
+//         throw new Error('readingName must be in store.courseInformation.');
+//     }
+//     if (props.readingName.startsWith('reading') === false) {
+//         throw new Error('readingName must start with "reading".');
+//     }
+//
+//     const reading = store.courseInformation[props.readingName] as Reading;
+//
+//     return <FormattedReading reading={reading} />;
+// }
 
 /**
  * Name of the link.
