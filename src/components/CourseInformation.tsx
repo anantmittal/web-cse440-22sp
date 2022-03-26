@@ -28,10 +28,14 @@ export const CourseInformationDueDate: FunctionComponent<CourseInformationDueDat
 
     // Check this because TypeScript doesn't ensure in MDX files
     if (!(props.dueDateName in store.courseInformation)) {
-        throw new Error('dueDateName must be in store.courseInformation.');
+        throw new Error(
+            `dueDateName '${props.dueDateName}' must be in store.courseInformation.`
+        );
     }
     if (!(props.dueDateName.startsWith('dueDate'))) {
-        throw new Error('dueDateName must start with "dueDate".');
+        throw new Error(
+            `dueDateName '${props.dueDateName}' must start with 'dueDate'.`
+        );
     }
 
     const dueDateText = store.courseInformation[props.dueDateName] as string;

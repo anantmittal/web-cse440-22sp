@@ -30,10 +30,35 @@ export class CourseInformationStore {
     // Link to university syllabus policies and guidelines
     linkUniversitySyllabusGuidelines: link = 'https://registrar.washington.edu/staffandfaculty/syllabus-guidelines/';
 
+    //
+    // Readings
+    //
+    linkReadingPersonalInformatics: link = 'https://doi.org/10.1145/1753326.1753409';
+    linkReadingQuantifiedSelf: link = 'https://archive.wired.com/medtech/health/magazine/17-07/lbnp_knowthyself';
+
+    //
     // Assignment 0
+    //
     dueDateAssignment0: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-03-31') + '.';
     linkCanvasAssignment0: link = null;
+
+    //
+    // Assignment 1
+    //
+    dueDateAssignment1a: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-03-31') + '.';
+    linkCanvasAssignment1a: link = null;
+
+    dueDateAssignment1b: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-06') + '.';
+    linkCanvasAssignment1b: link = null;
+
+    dueDateAssignment1c: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-11') + '.';
+    linkCanvasAssignment1c: link = null;
+
+
 
     // // Link regarding accessible presentations
     // // linkAccessiblePresentations: link = 'https://interactions.acm.org/archive/view/july-august-2017/making-your-presentation-accessible'
