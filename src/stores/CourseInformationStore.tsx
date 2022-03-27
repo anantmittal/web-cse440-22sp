@@ -58,7 +58,35 @@ export class CourseInformationStore {
         'Uploaded 11:59pm ' + formatDateString('2022-04-11') + '.';
     linkCanvasAssignment1c: link = null;
 
+    //
+    // Assignment 2
+    //
+    dueDateAssignment2a: dueDate = null;
+    linkCanvasAssignment2a: link = null;
 
+    dueDateAssignment2b: dueDate = null;
+    linkCanvasAssignment2b: link = null;
+
+    dueDateAssignment2c: dueDate = null;
+    linkCanvasAssignment2c: link = null;
+
+    dueDateAssignment2d: dueDate = null;
+    linkCanvasAssignment2d: link = null;
+
+    dueDateAssignment2e: dueDate = null;
+    linkCanvasAssignment2e: link = null;
+
+    dueDateAssignment2f: dueDate = null;
+    linkCanvasAssignment2f: link = null;
+
+    dueDateAssignment2g: dueDate = null;
+    linkCanvasAssignment2g: link = null;
+
+    dueDateAssignment2p: dueDate = null;
+    linkCanvasAssignment2p: link = null;
+
+    dueDateAssignment2web: dueDate = null;
+    linkCanvasAssignment2web: link = null;
 
     // // Link regarding accessible presentations
     // // linkAccessiblePresentations: link = 'https://interactions.acm.org/archive/view/july-august-2017/making-your-presentation-accessible'

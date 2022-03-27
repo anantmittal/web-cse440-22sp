@@ -22,6 +22,7 @@ import Home from "src/pages/Home.mdx";
 import AssignmentsOverviewWrapper from "src/content/assignments/OverviewWrapper.mdx"
 import Assignment0 from "src/content/assignments/assignment0/Assignment0.mdx"
 import Assignment1 from "src/content/assignments/assignment1/Assignment1.mdx"
+import Assignment2 from "src/content/assignments/assignment2/Assignment2.mdx"
 
 export const App: React.FunctionComponent = () => {
     return (
@@ -47,6 +48,7 @@ export const App: React.FunctionComponent = () => {
                             <Route path="" element={<AssignmentsOverviewWrapper/>} />
                             <Route path="assignment0" element={<Assignment0/>} />
                             <Route path="assignment1" element={<Assignment1/>} />
+                            <Route path="assignment2" element={<Assignment2/>} />
                         </Route>
                         <Route path="/calendar" element={<Calendar/>} />
                     </Routes>
