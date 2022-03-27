@@ -1,24 +1,23 @@
 import {
     // Alert,
     Box,
-    Collapse,
+    // Collapse,
     Grid,
     Stack,
 } from '@mui/material';
 
-import {
-    ExpandCircleDownOutlined
-} from '@mui/icons-material'
+// import {
+//     ExpandCircleDownOutlined
+// } from '@mui/icons-material'
 
 import * as React from 'react';
 
-import { anchorText } from "src/common/GeneratedAnchor";
+// import { anchorText } from "src/common/GeneratedAnchor";
 // import { CourseInformationLink } from '../components/CourseInformation';
 import { useAppStore } from '../stores/AppStoreProvider';
 import {
     CalendarDate,
     CalendarWeek,
-    CalendarItem,
     AssignmentCalendarItem,
     LectureCalendarItem,
     SectionCalendarItem,

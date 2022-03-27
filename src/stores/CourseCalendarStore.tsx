@@ -1,23 +1,6 @@
-// import * as React from 'react';
-
-import { ReactElement } from 'react';
-
 import { useAppStore } from '../stores/AppStoreProvider';
 
 import { DateTime } from 'luxon';
-
-// import { Reading } from '../types/Reading';
-
-// import ContentAvailableExam from '../content/calendar/AvailableExam.mdx';
-// import ContentContributionsInHCI from '../content/calendar/ContributionsInHCI.mdx';
-// import ContentDueExam from '../content/calendar/DueExam.mdx';
-// import ContentDueProjectFinalReport from '../content/calendar/DueProjectFinalReport.mdx';
-// import ContentDueStatisticsLab from '../content/calendar/DueStatisticsLab.mdx';
-// import ContentExperimentalDesignAndAnalysis from '../content/calendar/ExperimentalDesignAndAnalysis.mdx';
-// import ContentNoReading from '../content/calendar/NoReading.mdx';
-// import ContentProjectMilestone from '../content/calendar/ProjectMilestone.mdx';
-// import ContentProjectProposal from '../content/calendar/ProjectProposal.mdx';
-// import ContentVisionsOfHCI from '../content/calendar/VisionsOfHCI.mdx';
 
 export type CalendarDate = {
     date: DateTime
