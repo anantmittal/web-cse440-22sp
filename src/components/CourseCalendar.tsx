@@ -1,172 +1,214 @@
 import {
     // Alert,
     Box,
-    Collapse,
+    // Collapse,
     Grid,
+    Stack,
 } from '@mui/material';
-import {
-    ExpandCircleDownOutlined
-} from '@mui/icons-material'
-import * as React from 'react';
-import { FunctionComponent } from 'react';
 
-import { anchorText } from "src/common/GeneratedAnchor";
+// import {
+//     ExpandCircleDownOutlined
+// } from '@mui/icons-material'
+
+import * as React from 'react';
+
+// import { anchorText } from "src/common/GeneratedAnchor";
 // import { CourseInformationLink } from '../components/CourseInformation';
 import { useAppStore } from '../stores/AppStoreProvider';
-import { CalendarAssignment, CalendarDate } from '../stores/CourseCalendarStore';
+import {
+    CalendarDate,
+    CalendarWeek,
+    AssignmentCalendarItem,
+    LectureCalendarItem,
+    SectionCalendarItem,
+} from 'src/stores/CourseCalendarStore';
+
 // import GeneratedLink from "src/common/GeneratedLink";
 
-const DATE_FORMAT = 'EEE MMM d';
+const DATE_FORMAT = 'MMM d';
+// const DATE_FORMAT_WITH_DAY = 'EEE MMM d';
 
-// function renderAdditionalResources(calendarDateCurrent: CalendarDate) {
-//     if (calendarDateCurrent.additionalResources) {
-//         return (
-//             <Box>
-//                 <h3>Additional Optional Resources</h3>
-//                 {/*<ul>*/}
-//                 {/*    {calendarDateCurrent.additionalResources.map(readingCurrent => (*/}
-//                 {/*        <li key={readingCurrent.title}>*/}
-//                 {/*            <p><FormattedReading reading={readingCurrent}/></p>*/}
-//                 {/*        </li>*/}
-//                 {/*    ))}*/}
-//                 {/*</ul>*/}
-//             </Box>
-//         )
-//     } else {
-//         return null;
-//     }
+// function renderAssignment(assignmentCurrent: CalendarAssignment) {
+//     return (
+//         <Box>{assignmentCurrent}</Box>
+//     );
 // }
 //
-// function renderAwayJames(calendarDateCurrent: CalendarDate) {
-//     if (calendarDateCurrent.awayJames) {
-//         return (
-//             <Alert severity='info' sx={{marginBottom: 1}}>
-//                 James will be away, participating remotely if able.
-//             </Alert>
-//         );
-//     } else {
+// function renderAssignments(calendarDateCurrent: CalendarDate) {
+//     if (!calendarDateCurrent.assignments) {
 //         return null;
 //     }
-// }
 //
-// function renderContent(calendarDateCurrent: CalendarDate) {
-//     if ('readingsStandard' in calendarDateCurrent) {
-//         return (
-//             <Box>
-//                 <p>Read the framing paper:</p>
-//                 <ul>
-//                     <li>
-//                         {/*<p><FormattedReading reading={calendarDateCurrent.readingsStandard.framing}/></p>*/}
-//                     </li>
-//                 </ul>
-//                 <p>Select one additional reading:</p>
-//                 <ul>
-//                     {calendarDateCurrent.readingsStandard.instances.map(readingCurrent => (
-//                         <li key={readingCurrent.title}>
-//                             {/*<p><FormattedReading reading={readingCurrent}/></p>*/}
-//                         </li>
-//                     ))}
-//                 </ul>
-//                 <h3>Standard Reading Format</h3>
-//                 <p>Post a reading report in the appropriate thread(s), by 11:59pm the night before class:</p>
-//                 {/*<p><CourseInformationLink linkName={'linkDiscussion'}/></p>*/}
-//             </Box>
-//         );
-//     } else if ('contentNonstandard' in calendarDateCurrent) {
-//         // Non-standard content rendered in an outside component
-//         return calendarDateCurrent.contentNonstandard;
-//     }
+//     return (
+//         <Box>{calendarDateCurrent.assignments.map(renderAssignment)}</Box>
+//     );
 // }
+
+// function renderCalendarDateCurrent(calendarDateCurrent: CalendarDate) {
+//     const [expanded, setExpanded] = React.useState<boolean>(
+//         true
+//         // calendarDateCurrent.date.diffNow("days").days >= -1
+//     );
 //
-// function renderGuest(calendarDateCurrent: CalendarDate) {
-//     if (calendarDateCurrent.guest) {
-//         return (
-//             <Alert severity='info' sx={{marginBottom: 1}}>
-//                 Guest: <GeneratedLink href={calendarDateCurrent.guest.link}>{calendarDateCurrent.guest.name}</GeneratedLink>
-//             </Alert>
-//         );
+//     const toggleExpanded = () => {
+//         setExpanded(!expanded);
+//     };
+//
+//     let rotation;
+//     if (expanded) {
+//         rotation = "rotate(180deg)";
 //     } else {
-//         return null;
+//         rotation = "rotate(0deg)";
 //     }
-// }
 //
-// function renderVirtual(calendarDateCurrent: CalendarDate) {
-//     if (calendarDateCurrent.virtual) {
-//         return (
-//             <Alert severity='info' sx={{marginBottom: 1}}>
-//                 Class will be conducted via Zoom, using meeting information provided by email and in Canvas.
-//             </Alert>
-//         );
-//     } else {
-//         return null;
-//     }
+//     return (
+//         <Grid item container key={calendarDateCurrent.date.toISODate()}>
+//             <Grid item xs={2}>
+//                 <h2 id={anchorText(calendarDateCurrent.date.toFormat(DATE_FORMAT))}>
+//                     {calendarDateCurrent.date.toFormat(DATE_FORMAT)}
+//                 </h2>
+//             </Grid>
+//             <Grid item xs={10}>
+//                 <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
+//                     <h2 id={anchorText(calendarDateCurrent.title)}>{calendarDateCurrent.title}</h2>
+//                     <ExpandCircleDownOutlined onClick={toggleExpanded} sx={{ transform: rotation }} />
+//                 </Box>
+//                 <Collapse in={expanded} mountOnEnter unmountOnExit>
+//                     {renderAssignments(calendarDateCurrent)}
+//                     {/*{renderVirtual(calendarDateCurrent)}*/}
+//                     {/*{renderAwayJames(calendarDateCurrent)}*/}
+//                     {/*{renderGuest(calendarDateCurrent)}*/}
+//                     {/*{renderContent(calendarDateCurrent)}*/}
+//                     {/*{renderAdditionalResources(calendarDateCurrent)}*/}
+//                 </Collapse>
+//             </Grid>
+//         </Grid>
+//     );
 // }
 
-function renderAssignment(assignmentCurrent: CalendarAssignment) {
-    return (
-        <Box>{assignmentCurrent}</Box>
-    );
-}
-
-function renderAssignments(calendarDateCurrent: CalendarDate) {
-    if (!calendarDateCurrent.assignments) {
-        return null;
-    }
-
-    return (
-        <Box>{calendarDateCurrent.assignments.map(renderAssignment)}</Box>
-    );
-}
-
-function renderCalendarDateCurrent(calendarDateCurrent: CalendarDate) {
-    const [expanded, setExpanded] = React.useState<boolean>(
-        true
-        // calendarDateCurrent.date.diffNow("days").days >= -1
-    );
-
-    const toggleExpanded = () => {
-        setExpanded(!expanded);
-    };
-
-    let rotation;
-    if (expanded) {
-        rotation = "rotate(180deg)";
-    } else {
-        rotation = "rotate(0deg)";
-    }
-
-    return (
-        <Grid item container key={calendarDateCurrent.date.toISODate()}>
-            <Grid item xs={2}>
-                <h2 id={anchorText(calendarDateCurrent.date.toFormat(DATE_FORMAT))}>
-                    {calendarDateCurrent.date.toFormat(DATE_FORMAT)}
-                </h2>
-            </Grid>
-            <Grid item xs={10}>
-                <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-                    <h2 id={anchorText(calendarDateCurrent.title)}>{calendarDateCurrent.title}</h2>
-                    <ExpandCircleDownOutlined onClick={toggleExpanded} sx={{ transform: rotation }} />
-                </Box>
-                <Collapse in={expanded} mountOnEnter unmountOnExit>
-                    {renderAssignments(calendarDateCurrent)}
-                    {/*{renderVirtual(calendarDateCurrent)}*/}
-                    {/*{renderAwayJames(calendarDateCurrent)}*/}
-                    {/*{renderGuest(calendarDateCurrent)}*/}
-                    {/*{renderContent(calendarDateCurrent)}*/}
-                    {/*{renderAdditionalResources(calendarDateCurrent)}*/}
-                </Collapse>
-            </Grid>
-        </Grid>
-    );
-}
-
-export const CourseCalendar: FunctionComponent = () => {
+function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
 
     return (
-        <Grid container>
-            {store.courseCalendar.calendarDates.map(renderCalendarDateCurrent)}
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'assignment'
+                    ) as AssignmentCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "lightgreen",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )
+}
+
+function renderLectureCalendarItems(calendarDate: CalendarDate) {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'lecture'
+                    ) as LectureCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "lightsalmon",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )
+}
+
+function renderSectionCalendarItems(calendarDate: CalendarDate) {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'section'
+                    ) as SectionCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "lightblue",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )
+}
+
+function renderCalendarItems(calendarDate: CalendarDate) {
+
+    return (
+        <Stack spacing={0.5}>
+            {renderLectureCalendarItems(calendarDate)}
+            {renderSectionCalendarItems(calendarDate)}
+            {renderAssignmentCalendarItems(calendarDate)}
+        </Stack>
+    );
+}
+
+function renderCalendarDate(calendarDate: CalendarDate) {
+    return (
+        <Grid item xs>
+            <h3>
+                {calendarDate.date.toFormat(DATE_FORMAT)}
+            </h3>
+            {renderCalendarItems(calendarDate)}
         </Grid>
+    );
+}
+
+function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
+    return (
+        <Grid container width="100%" spacing={1}>
+            {calendarWeekCurrent.days.map(renderCalendarDate)}
+        </Grid>
+    );
+}
+
+export const CourseCalendar: React.FunctionComponent = () => {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            <Stack spacing={2}>
+                {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
+            </Stack>
+        </React.Fragment>
     );
 }
 
