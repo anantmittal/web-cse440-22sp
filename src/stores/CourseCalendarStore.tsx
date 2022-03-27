@@ -2,6 +2,8 @@
 
 import { ReactElement } from 'react';
 
+import { useAppStore } from '../stores/AppStoreProvider';
+
 import { DateTime } from 'luxon';
 
 // import { Reading } from '../types/Reading';
@@ -17,231 +19,189 @@ import { DateTime } from 'luxon';
 // import ContentProjectProposal from '../content/calendar/ProjectProposal.mdx';
 // import ContentVisionsOfHCI from '../content/calendar/VisionsOfHCI.mdx';
 
-export type CalendarAssignment = string;
+export type CalendarDate = {
+    date: DateTime
+}
 
-type CalendarDateBase = {
-    date: DateTime,
+export type CalendarWeek = {
+    days: CalendarDate[]
+}
+
+/**
+ * A calendar item has either a date or a list of dates.
+ */
+type BaseCalendarItemDates = {
+    date: DateTime
+} | {
+    dates: DateTime[]
+}
+
+export type AssignmentCalendarItem = BaseCalendarItemDates & {
+    type: 'assignment',
     title: string,
-    assignments?: CalendarAssignment[],
-
-
-    virtual?: boolean,
-    awayJames?: boolean,
-    guest?: {
-        name: string,
-        link: string,
-    }
-    // additionalResources?: Reading[],
 }
 
-type CalendarDateContentStandard = CalendarDateBase & {
-    // readingsStandard: {
-    //     framing: Reading,
-    //     instances: Reading[],
-    // }
+export type LectureCalendarItem = BaseCalendarItemDates & {
+    type: 'lecture',
+    title: string,
 }
 
-type CalendarDateContentNonstandard = CalendarDateBase & {
-    contentNonstandard: ReactElement,
+export type SectionCalendarItem = BaseCalendarItemDates & {
+    type: 'section',
+    title: string,
 }
 
-export type CalendarDate = CalendarDateBase | CalendarDateContentStandard | CalendarDateContentNonstandard;
+export type CalendarItem =
+    AssignmentCalendarItem |
+    LectureCalendarItem |
+    SectionCalendarItem;
 
 export class CourseCalendarStore {
-    calendarDates: CalendarDate[] = [
+    /**
+     * Start and end dates for the course.
+     */
+    datesOfInstruction = {
+        start: DateTime.fromFormat('Mon 2022-03-28', 'EEE yyyy-MM-dd'),  // Should be a Monday
+        end:   DateTime.fromFormat('Fri 2022-06-10', 'EEE yyyy-MM-dd')   // Should be a Friday
+    };
+
+    /**
+     * Use start and end dates to calculate a list of CalendarWeek objects.
+     */
+    get calendarWeeks(): CalendarWeek[] {
+        return (
+            // Obtain an interval for the dates of instruction
+            this.datesOfInstruction.start.until(
+                this.datesOfInstruction.end.plus({days: 1})
+            )
+            // Split the interval into weeks
+            .splitBy({weeks: 1})
+            // Convert each week interval into a list of dates
+            .map(
+                weekIntervalCurrent => weekIntervalCurrent.splitBy({days: 1}).map(
+                    interval => interval.start
+                )
+                // Keep only weekdays
+                .filter(
+                    date => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(date.weekdayShort)
+                )
+            )
+            // Convert each list of dates into a CalendarWeek
+            .map(
+                weekListDatesCurrent => ({
+                    // Convert each date into a CalendarDate
+                    days: weekListDatesCurrent.map(
+                        dayCurrent => ({
+                            date: dayCurrent
+                        }) as CalendarDate
+                    )
+                }) as CalendarWeek
+            )
+        )
+    }
+
+    calendarItems: CalendarItem[] = [
         //
-        // Week 1
+        // Lecture Calendar Items
         //
         {
+            type: 'lecture',
             date: DateTime.fromISO('2022-03-29'),
-
-            title: 'Course Introduction',
+            title: 'Introduction and Overview'
         },
         {
+            type: 'lecture',
             date: DateTime.fromISO('2022-03-31'),
-
-            title: 'Design Diamond',
-            assignments: [
-                'Introduction Slide',
-                'Project Brainstorm',
-            ]
+            title: 'Design Diamond'
         },
         {
-            date: DateTime.fromISO('2022-04-01'),
-
-            title: 'Section',
+            type: 'lecture',
+            dates: [
+                DateTime.fromISO('2022-04-05'),
+                DateTime.fromISO('2022-04-07'),
+                DateTime.fromISO('2022-04-12'),
+                DateTime.fromISO('2022-04-14'),
+                DateTime.fromISO('2022-04-19'),
+                DateTime.fromISO('2022-04-21'),
+                DateTime.fromISO('2022-04-26'),
+                DateTime.fromISO('2022-04-28'),
+                DateTime.fromISO('2022-05-03'),
+                DateTime.fromISO('2022-05-05'),
+                DateTime.fromISO('2022-05-10'),
+                DateTime.fromISO('2022-05-12'),
+                DateTime.fromISO('2022-05-17'),
+                DateTime.fromISO('2022-05-19'),
+                DateTime.fromISO('2022-05-24'),
+                DateTime.fromISO('2022-05-26'),
+                DateTime.fromISO('2022-05-31'),
+                DateTime.fromISO('2022-06-02'),
+            ],
+            title: 'Lecture'
         },
 
         //
-        // Week 2
+        // Lecture Calendar Items
         //
         {
-            date: DateTime.fromISO('2022-04-05'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-04-07'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-04-08'),
-
-            title: 'Section',
-        },
-
-        //
-        // Week 3
-        //
-        {
-            date: DateTime.fromISO('2022-04-12'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-04-14'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-04-15'),
-
-            title: 'Section',
+            type: 'section',
+            dates: [
+                DateTime.fromISO('2022-04-01'),
+                DateTime.fromISO('2022-04-08'),
+                DateTime.fromISO('2022-04-15'),
+                DateTime.fromISO('2022-04-22'),
+                DateTime.fromISO('2022-04-29'),
+                DateTime.fromISO('2022-05-06'),
+                DateTime.fromISO('2022-05-13'),
+                DateTime.fromISO('2022-05-20'),
+                DateTime.fromISO('2022-05-27'),
+                DateTime.fromISO('2022-06-03'),
+            ],
+            title: 'Section'
         },
 
         //
-        // Week 4
+        // Assignment Calendar Items
         //
         {
-            date: DateTime.fromISO('2022-04-19'),
-
-            title: 'Lecture',
+            type: 'assignment',
+            date: DateTime.fromISO('2022-03-31'),
+            title: '0 - Introduction Slide'
         },
         {
-            date: DateTime.fromISO('2022-04-21'),
-
-            title: 'Lecture',
+            type: 'assignment',
+            date: DateTime.fromISO('2022-03-31'),
+            title: '1a - Individual Brainstorm'
         },
         {
-            date: DateTime.fromISO('2022-04-22'),
-
-            title: 'Section',
-        },
-
-        //
-        // Week 5
-        //
-        {
-            date: DateTime.fromISO('2022-04-26'),
-
-            title: 'Lecture',
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-06'),
+            title: '1b - Group Proposals'
         },
         {
-            date: DateTime.fromISO('2022-04-28'),
-
-            title: 'Lecture',
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-11'),
+            title: '1c - Revised Proposal'
         },
-        {
-            date: DateTime.fromISO('2022-04-29'),
-
-            title: 'Section',
-        },
-
-        //
-        // Week 6
-        //
-        {
-            date: DateTime.fromISO('2022-05-03'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-05'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-06'),
-
-            title: 'Section',
-        },
-
-        //
-        // Week 7
-        //
-        {
-            date: DateTime.fromISO('2022-05-10'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-12'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-13'),
-
-            title: 'Section',
-        },
-
-
-        //
-        // Week 8
-        //
-        {
-            date: DateTime.fromISO('2022-05-17'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-19'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-20'),
-
-            title: 'Section',
-        },
-
-        //
-        // Week 9
-        //
-        {
-            date: DateTime.fromISO('2022-05-24'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-26'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-05-27'),
-
-            title: 'Section',
-        },
-
-        //
-        // Week 10
-        //
-        {
-            date: DateTime.fromISO('2022-05-31'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-06-02'),
-
-            title: 'Lecture',
-        },
-        {
-            date: DateTime.fromISO('2022-06-03'),
-
-            title: 'Section',
-        },
+    //
     ];
+
+    getCalendarItems(calendarDate: CalendarDate, itemType: string): CalendarItem[] {
+        const store = useAppStore();
+
+        return store.courseCalendar.calendarItems.filter(
+            function(calendarItem) {
+                if ('date' in calendarItem) {
+                    if (!calendarItem.date.equals(calendarDate.date)) {
+                        return false;
+                    }
+                } else {  // dates in calendarItem
+                    if (!calendarItem.dates.some(itemDateCurrent => itemDateCurrent.equals(calendarDate.date))) {
+                        return false;
+                    }
+                }
+
+                return calendarItem.type == itemType;
+            }
+        )
+    }
 }
