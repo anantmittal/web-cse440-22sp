@@ -111,6 +111,17 @@ export class CourseInformationStore {
     dueDateAssignment3web: dueDate = null;
     linkCanvasAssignment3web: link = null;
 
+    //
+    // Assignment 4
+    //
+    dueDateAssignment4a: dueDate = null;
+    linkCanvasAssignment4a: link = null;
+
+    dueDateAssignment4b: dueDate = null;
+    linkCanvasAssignment4b: link = null;
+
+    dueDateAssignment4p: dueDate = null;
+
     // // Link regarding accessible presentations
     // // linkAccessiblePresentations: link = 'https://interactions.acm.org/archive/view/july-august-2017/making-your-presentation-accessible'
     //

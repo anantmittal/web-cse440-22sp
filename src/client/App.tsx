@@ -24,6 +24,7 @@ import Assignment0 from "src/content/assignments/assignment0/Assignment0.mdx"
 import Assignment1 from "src/content/assignments/assignment1/Assignment1.mdx"
 import Assignment2 from "src/content/assignments/assignment2/Assignment2.mdx"
 import Assignment3 from "src/content/assignments/assignment3/Assignment3.mdx"
+import Assignment4 from "src/content/assignments/assignment4/Assignment4.mdx"
 
 export const App: React.FunctionComponent = () => {
     return (
@@ -51,6 +52,7 @@ export const App: React.FunctionComponent = () => {
                             <Route path="assignment1" element={<Assignment1/>} />
                             <Route path="assignment2" element={<Assignment2/>} />
                             <Route path="assignment3" element={<Assignment3/>} />
+                            <Route path="assignment4" element={<Assignment4/>} />
                         </Route>
                         <Route path="/calendar" element={<Calendar/>} />
                     </Routes>
