@@ -165,7 +165,102 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-11'),
             title: '1c - Revised Proposal'
         },
-    //
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-12'),
+            title: '2a - Project Ideation'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-14'),
+            title: '2b - Design Research Plan'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-18'),
+            title: '2c - Design Research Check-In'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-21'),
+            title: '2d - Design Research Review'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-25'),
+            title: '2e - Task Review'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-28'),
+            title: '2f - Design Check-In'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-02'),
+            title: '2g - Design Review'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-05'),
+            title: '2p - Presentation'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-30'),
+            title: '2web - Getting the Right Design'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-09'),
+            title: '3a - Paper Prototype'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-10'),
+            title: '3b - Heuristic Evaluation'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-12'),
+            title: '3c - Usability Testing Check-In'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-19'),
+            title: '3d - Usability Testing Review'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-23'),
+            title: '3e - Digital Mockup'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-26'),
+            title: '3p - Presentation'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-05-30'),
+            title: '3web - Getting the Design Right'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-06-01'),
+            title: '4a - Initial Poster and Pitch'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-06-03'),
+            title: '4b - Final Poster and Pitch'
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-06-06'),
+            title: 'Poster Session'
+        },
+        //
     ];
 
     getCalendarItems(calendarDate: CalendarDate, itemType: string): CalendarItem[] {
