@@ -133,7 +133,12 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                             borderRadius: ".25rem",
                             padding: "4px",
                         }}>
-                            {calendarItem.title}
+                            {calendarItem.title}<br />
+                            {calendarItem.slides != null &&
+                                <React.Fragment>
+                                    [<a href={calendarItem.slides}>slides</a>]<br/>
+                                </React.Fragment>
+                            }
                         </Box>
                     )
                 )

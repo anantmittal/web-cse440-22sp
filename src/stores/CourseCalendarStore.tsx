@@ -1,3 +1,4 @@
+import { link } from 'src/stores/CourseInformationStore';
 import { useAppStore } from '../stores/AppStoreProvider';
 
 import { DateTime } from 'luxon';
@@ -27,6 +28,7 @@ export type AssignmentCalendarItem = BaseCalendarItemDates & {
 export type LectureCalendarItem = BaseCalendarItemDates & {
     type: 'lecture',
     title: string,
+    slides?: link,
 }
 
 export type SectionCalendarItem = BaseCalendarItemDates & {
@@ -90,7 +92,8 @@ export class CourseCalendarStore {
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-03-29'),
-            title: 'Introduction and Overview'
+            title: 'Introduction and Overview',
+            slides: 'https://canvas.uw.edu/files/90196074/download?download_frd=1'
         },
         {
             type: 'lecture',
