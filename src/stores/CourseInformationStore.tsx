@@ -48,15 +48,15 @@ export class CourseInformationStore {
     //
     dueDateAssignment1a: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-03-31') + '.';
-    linkCanvasAssignment1a: link = null;
+    linkCanvasAssignment1a: link = "https://canvas.uw.edu/courses/1545349/assignments/7281128";
 
     dueDateAssignment1b: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-04-06') + '.';
-    linkCanvasAssignment1b: link = null;
+    linkCanvasAssignment1b: link = 'https://canvas.uw.edu/courses/1545349/assignments/7281788';
 
     dueDateAssignment1c: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-04-11') + '.';
-    linkCanvasAssignment1c: link = null;
+    linkCanvasAssignment1c: link = 'https://canvas.uw.edu/courses/1545349/assignments/7281798';
 
     //
     // Assignment 2
