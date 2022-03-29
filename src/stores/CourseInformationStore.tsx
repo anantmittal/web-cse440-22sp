@@ -9,7 +9,7 @@ const DATE_FORMAT_OPTIONS = {
     weekday: 'long'
 } as DateTimeFormatOptions;
 
-type link = string | null;
+export type link = string | null;
 type dueDate = string | null;
 
 function formatDateString(dateString: string): string {
