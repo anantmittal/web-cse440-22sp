@@ -48,6 +48,7 @@ export type LectureCalendarItem = {
     type: 'lecture',
     title: string,
     slides?: link,
+    video?: link,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
 export type SectionCalendarItem = {
@@ -113,13 +114,14 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-03-29'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Introduction and Overview',
-            slides: 'https://canvas.uw.edu/files/90196074/download?download_frd=1'
+            slides: 'https://canvas.uw.edu/files/90196074/download?download_frd=1',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=73caeacf-f221-4959-bc78-ae68011874d7',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-03-31'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Design Diamond'
+            title: 'Design Diamond',
         },
         {
             type: 'lecture',
@@ -144,7 +146,7 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-06-02'),
             ],
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture'
+            title: 'Lecture',
         },
 
         //
@@ -165,7 +167,7 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-06-03'),
             ],
             timeAndLocations: SECTION_TIME_AND_LOCATIONS,
-            title: 'Section'
+            title: 'Section',
         },
 
         //
@@ -174,117 +176,117 @@ export class CourseCalendarStore {
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-03-31'),
-            title: '0 - Introduction Slide'
+            title: '0 - Introduction Slide',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-03-31'),
-            title: '1a - Individual Brainstorm'
+            title: '1a - Individual Brainstorm',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-06'),
-            title: '1b - Group Proposals'
+            title: '1b - Group Proposals',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-11'),
-            title: '1c - Revised Proposal'
+            title: '1c - Revised Proposal',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-12'),
-            title: '2a - Project Ideation'
+            title: '2a - Project Ideation',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-14'),
-            title: '2b - Design Research Plan'
+            title: '2b - Design Research Plan',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-18'),
-            title: '2c - Design Research Check-In'
+            title: '2c - Design Research Check-In',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-21'),
-            title: '2d - Design Research Review'
+            title: '2d - Design Research Review',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-25'),
-            title: '2e - Task Review'
+            title: '2e - Task Review',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-04-28'),
-            title: '2f - Design Check-In'
+            title: '2f - Design Check-In',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-02'),
-            title: '2g - Design Review'
+            title: '2g - Design Review',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-05'),
-            title: '2p - Presentation'
+            title: '2p - Presentation',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-30'),
-            title: '2web - Getting the Right Design'
+            title: '2web - Getting the Right Design',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-09'),
-            title: '3a - Paper Prototype'
+            title: '3a - Paper Prototype',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-10'),
-            title: '3b - Heuristic Evaluation'
+            title: '3b - Heuristic Evaluation',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-12'),
-            title: '3c - Usability Testing Check-In'
+            title: '3c - Usability Testing Check-In',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-19'),
-            title: '3d - Usability Testing Review'
+            title: '3d - Usability Testing Review',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-23'),
-            title: '3e - Digital Mockup'
+            title: '3e - Digital Mockup',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-26'),
-            title: '3p - Presentation'
+            title: '3p - Presentation',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-05-30'),
-            title: '3web - Getting the Design Right'
+            title: '3web - Getting the Design Right',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-06-01'),
-            title: '4a - Initial Poster and Pitch'
+            title: '4a - Initial Poster and Pitch',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-06-03'),
-            title: '4b - Final Poster and Pitch'
+            title: '4b - Final Poster and Pitch',
         },
         {
             type: 'assignment',
             date: DateTime.fromISO('2022-06-06'),
-            title: 'Poster Session'
+            title: 'Poster Session',
         },
         //
     ];

@@ -135,9 +135,24 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                         }}>
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
-                            {calendarItem.slides != null &&
+                            {calendarItem.slides != undefined &&
                                 <React.Fragment>
-                                    [<a href={calendarItem.slides}>slides</a>]<br/>
+                                    [<a href={calendarItem.slides}>slides</a>]
+                                </React.Fragment>
+                            }
+                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                <React.Fragment>
+                                    {" "}
+                                </React.Fragment>
+                            }
+                            {calendarItem.video != undefined &&
+                                <React.Fragment>
+                                    [<a href={calendarItem.video}>video</a>]
+                                </React.Fragment>
+                            }
+                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                <React.Fragment>
+                                    <br/>
                                 </React.Fragment>
                             }
                         </Box>
