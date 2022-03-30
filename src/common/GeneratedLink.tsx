@@ -39,6 +39,15 @@ export const GeneratedLink: FunctionComponent<GeneratedLinkProps> = (props) => {
         );
     }
 
+    /**
+     * Determines whether a link is an internal html id 
+     */
+     function isInternalId(): boolean {
+        return (
+            props.href.toLowerCase().startsWith('#')
+        );
+    }
+
     // Both types of link are rendered as <Link /> so it's easier to consistently style them.
     // Passing the <RouterLink /> as component then gets the desired behavior.
     //
@@ -53,7 +62,18 @@ export const GeneratedLink: FunctionComponent<GeneratedLinkProps> = (props) => {
                 children={props.children}
             />
         );
-    } else {
+    } 
+    else if (isInternalId()){
+        return (
+            <Link
+                href={props.href}
+                rel="noopener"
+                children={props.children}
+            />
+        );
+    }
+    
+    else {
         // Internal links use <RouterLink>, opened without a page load
         return (
             <Link
