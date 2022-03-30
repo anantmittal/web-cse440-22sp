@@ -12,8 +12,9 @@ const SECTION_TIME_AND_LOCATIONS: TimeAndLocation[] = [
     '12:30 - 1:20 | MGH 058',
     '1:30 - 2:20 | MGH 058'
 ]
+const POSTER_SESSION_TIME_AND_LOCATION: TimeAndLocation = '11:00 - 11:50 | CSE Atrium';
 
-const OFFICE_HOUR_QISHING_TIME_AND_LOCATION: TimeAndLocation = '11:30 - 12:30 | CSE 3rd Floor Breakout';
+const OFFICE_HOUR_QISHENG_TIME_AND_LOCATION: TimeAndLocation = '11:30 - 12:30 | CSE 3rd Floor Breakout';
 const OFFICE_HOUR_JESSE_TIME_AND_LOCATION: TimeAndLocation = '4:00 - 5:00 | Zoom';
 
 export type CalendarDate = {
@@ -52,6 +53,11 @@ export type AwayCalendarItem = {
     title: string,
 } & BaseCalendarItemDates;
 
+export type EventCalendarItem = {
+    type: 'event',
+    title: string,
+} & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
+
 export type HolidayCalendarItem = {
     type: 'holiday',
     title: string,
@@ -77,6 +83,7 @@ export type SectionCalendarItem = {
 export type CalendarItem =
     AssignmentCalendarItem |
     AwayCalendarItem |
+    EventCalendarItem |
     HolidayCalendarItem |
     LectureCalendarItem |
     OfficeHourCalendarItem |
@@ -147,26 +154,91 @@ export class CourseCalendarStore {
         },
         {
             type: 'lecture',
-            dates: [
-                DateTime.fromISO('2022-04-05'),
-                DateTime.fromISO('2022-04-07'),
-                DateTime.fromISO('2022-04-12'),
-                DateTime.fromISO('2022-04-14'),
-                DateTime.fromISO('2022-04-19'),
-                DateTime.fromISO('2022-04-21'),
-                DateTime.fromISO('2022-04-26'),
-                DateTime.fromISO('2022-04-28'),
-                DateTime.fromISO('2022-05-03'),
-                DateTime.fromISO('2022-05-05'),
-                DateTime.fromISO('2022-05-10'),
-                DateTime.fromISO('2022-05-12'),
-                DateTime.fromISO('2022-05-17'),
-                DateTime.fromISO('2022-05-19'),
-                DateTime.fromISO('2022-05-24'),
-                DateTime.fromISO('2022-05-26'),
-                DateTime.fromISO('2022-05-31'),
-                DateTime.fromISO('2022-06-02'),
-            ],
+            date: DateTime.fromISO('2022-04-05'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-07'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-12'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-14'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-19'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-21'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-26'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-04-28'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-03'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-05'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-10'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-12'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-19'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-24'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Lecture',
+        },
+        {
+            type: 'lecture',
+            date: DateTime.fromISO('2022-05-26'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Lecture',
         },
@@ -182,13 +254,23 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-04-15'),
                 DateTime.fromISO('2022-04-22'),
                 DateTime.fromISO('2022-04-29'),
-                DateTime.fromISO('2022-05-06'),
                 DateTime.fromISO('2022-05-13'),
                 DateTime.fromISO('2022-05-20'),
-                DateTime.fromISO('2022-05-27'),
                 DateTime.fromISO('2022-06-03'),
             ],
             timeAndLocations: SECTION_TIME_AND_LOCATIONS,
+            title: 'Section',
+        },
+        {
+            type: 'section',
+            date: DateTime.fromISO('2022-05-31'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Section',
+        },
+        {
+            type: 'section',
+            date: DateTime.fromISO('2022-06-02'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Section',
         },
 
@@ -305,11 +387,6 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-06-03'),
             title: '4b - Final Poster and Pitch',
         },
-        {
-            type: 'assignment',
-            date: DateTime.fromISO('2022-06-06'),
-            title: 'Poster Session',
-        },
 
         //
         // Office Hour Calendar Items
@@ -325,10 +402,9 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-05-12'),
                 DateTime.fromISO('2022-05-19'),
                 DateTime.fromISO('2022-05-26'),
-                DateTime.fromISO('2022-06-02'),
             ],
-            title: 'Office Hour - Qishing',
-            timeAndLocation: OFFICE_HOUR_QISHING_TIME_AND_LOCATION,
+            title: 'Office Hour - Qisheng',
+            timeAndLocation: OFFICE_HOUR_QISHENG_TIME_AND_LOCATION,
         },
         {
             type: 'officehour',
@@ -377,8 +453,10 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-05-03'),
                 DateTime.fromISO('2022-05-04'),
                 DateTime.fromISO('2022-05-05'),
+                DateTime.fromISO('2022-06-02'),
+                DateTime.fromISO('2022-06-03'),
             ],
-            title: 'Qishing Away',
+            title: 'Qisheng Away',
         },
         {
             type: 'away',
@@ -400,7 +478,35 @@ export class CourseCalendarStore {
             type: 'holiday',
             title: 'Memorial Day',
             date: DateTime.fromISO('2022-05-30')
-        }
+        },
+
+        //
+        // Event Calendar Items
+        //
+        {
+            type: 'event',
+            title: 'Presentations',
+            date: DateTime.fromISO('2022-05-06'),
+            timeAndLocations: SECTION_TIME_AND_LOCATIONS,
+        },
+        {
+            type: 'event',
+            title: 'Presentations',
+            date: DateTime.fromISO('2022-05-27'),
+            timeAndLocations: SECTION_TIME_AND_LOCATIONS,
+        },
+        {
+            type: 'event',
+            title: 'Exam',
+            date: DateTime.fromISO('2022-05-17'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+        },
+        {
+            type: 'event',
+            title: 'Poster Session',
+            date: DateTime.fromISO('2022-06-06'),
+            timeAndLocation: POSTER_SESSION_TIME_AND_LOCATION,
+        },
 
         //
     ];

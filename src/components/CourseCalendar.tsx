@@ -21,9 +21,11 @@ import {
     AssignmentCalendarItem,
     AwayCalendarItem,
     BaseCalendarItemTimeAndLocation,
+    EventCalendarItem,
+    HolidayCalendarItem,
     LectureCalendarItem,
     OfficeHourCalendarItem,
-    SectionCalendarItem, HolidayCalendarItem,
+    SectionCalendarItem,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
@@ -144,6 +146,35 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
         </React.Fragment>
     )}
 
+function renderEventCalendarItems(calendarDate: CalendarDate) {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'event'
+                    ) as EventCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "lavender",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}<br/>
+                            {renderTimeAndLocation(calendarItem)}
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )
+}
+
 function renderHolidayCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
 
@@ -170,6 +201,7 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
             }
         </React.Fragment>
     )}
+
 function renderLectureCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
 
@@ -302,6 +334,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
             {renderHolidayCalendarItems(calendarDate)}
             {renderLectureCalendarItems(calendarDate)}
             {renderSectionCalendarItems(calendarDate)}
+            {renderEventCalendarItems(calendarDate)}
             {renderAssignmentCalendarItems(calendarDate)}
             {renderOfficeHourCalendarItems(calendarDate)}
             {renderAwayCalendarItems(calendarDate)}
