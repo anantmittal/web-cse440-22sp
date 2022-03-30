@@ -20,8 +20,10 @@ import {
     CalendarWeek,
     AssignmentCalendarItem,
     AwayCalendarItem,
+    BaseCalendarItemTimeAndLocation,
     LectureCalendarItem,
-    SectionCalendarItem, BaseCalendarItemTimeAndLocation,
+    OfficeHourCalendarItem,
+    SectionCalendarItem, HolidayCalendarItem,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
@@ -142,6 +144,32 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
         </React.Fragment>
     )}
 
+function renderHolidayCalendarItems(calendarDate: CalendarDate) {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'holiday'
+                    ) as HolidayCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "orange",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )}
 function renderLectureCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
 
@@ -183,6 +211,35 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                                     <br/>
                                 </React.Fragment>
                             }
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )
+}
+
+function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'officehour'
+                    ) as OfficeHourCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "lightgoldenrodyellow",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}<br/>
+                            {renderTimeAndLocation(calendarItem)}
                         </Box>
                     )
                 )
@@ -242,9 +299,11 @@ function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
 function renderCalendarItems(calendarDate: CalendarDate) {
     return (
         <Stack spacing={0.5}>
+            {renderHolidayCalendarItems(calendarDate)}
             {renderLectureCalendarItems(calendarDate)}
             {renderSectionCalendarItems(calendarDate)}
             {renderAssignmentCalendarItems(calendarDate)}
+            {renderOfficeHourCalendarItems(calendarDate)}
             {renderAwayCalendarItems(calendarDate)}
         </Stack>
     );
