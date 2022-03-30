@@ -19,6 +19,7 @@ import {
     CalendarDate,
     CalendarWeek,
     AssignmentCalendarItem,
+    AwayCalendarItem,
     LectureCalendarItem,
     SectionCalendarItem, BaseCalendarItemTimeAndLocation,
 } from 'src/stores/CourseCalendarStore';
@@ -113,6 +114,33 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
         </React.Fragment>
     )
 }
+
+function renderAwayCalendarItems(calendarDate: CalendarDate) {
+    const store = useAppStore();
+
+    return (
+        <React.Fragment>
+            {
+                (
+                    store.courseCalendar.getCalendarItems(
+                        calendarDate, 'away'
+                    ) as AwayCalendarItem[]
+                )
+                .map(
+                    calendarItem => (
+                        <Box sx={{
+                            backgroundColor: "lightpink",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}>
+                            {calendarItem.title}
+                        </Box>
+                    )
+                )
+            }
+        </React.Fragment>
+    )}
 
 function renderLectureCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
@@ -217,6 +245,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
             {renderLectureCalendarItems(calendarDate)}
             {renderSectionCalendarItems(calendarDate)}
             {renderAssignmentCalendarItems(calendarDate)}
+            {renderAwayCalendarItems(calendarDate)}
         </Stack>
     );
 }
