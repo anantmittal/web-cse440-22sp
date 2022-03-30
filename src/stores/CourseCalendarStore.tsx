@@ -44,6 +44,11 @@ export type AssignmentCalendarItem = {
     title: string,
 } & BaseCalendarItemDates;
 
+export type AwayCalendarItem = {
+    type: 'away',
+    title: string,
+} & BaseCalendarItemDates;
+
 export type LectureCalendarItem = {
     type: 'lecture',
     title: string,
@@ -58,6 +63,7 @@ export type SectionCalendarItem = {
 
 export type CalendarItem =
     AssignmentCalendarItem |
+    AwayCalendarItem |
     LectureCalendarItem |
     SectionCalendarItem;
 
@@ -288,6 +294,43 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-06-06'),
             title: 'Poster Session',
         },
+
+        //
+        // Away Calendar Items
+        //
+        {
+            type: 'away',
+            dates: [
+                DateTime.fromISO('2022-05-02'),
+                DateTime.fromISO('2022-05-03'),
+                DateTime.fromISO('2022-05-04'),
+                DateTime.fromISO('2022-05-05'),
+                DateTime.fromISO('2022-05-06'),
+            ],
+            title: 'Anant Away',
+        },
+        {
+            type: 'away',
+            dates: [
+                DateTime.fromISO('2022-05-02'),
+                DateTime.fromISO('2022-05-03'),
+                DateTime.fromISO('2022-05-04'),
+                DateTime.fromISO('2022-05-05'),
+                DateTime.fromISO('2022-05-06'),
+            ],
+            title: 'Jesse Away',
+        },
+        {
+            type: 'away',
+            dates: [
+                DateTime.fromISO('2022-05-02'),
+                DateTime.fromISO('2022-05-03'),
+                DateTime.fromISO('2022-05-04'),
+                DateTime.fromISO('2022-05-05'),
+            ],
+            title: 'Qishing Away',
+        },
+
         //
     ];
 
