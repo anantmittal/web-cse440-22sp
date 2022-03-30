@@ -48,7 +48,7 @@ export class CourseInformationStore {
     //
     dueDateAssignment1a: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-03-31') + '.';
-    linkCanvasAssignment1a: link = "https://canvas.uw.edu/courses/1545349/assignments/7281128";
+    linkCanvasAssignment1a: link = "https://canvas.uw.edu/courses/1545349/assignments/7291898";
 
     dueDateAssignment1b: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-04-06') + '.';
