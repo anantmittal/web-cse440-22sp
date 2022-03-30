@@ -3,6 +3,16 @@ import { useAppStore } from '../stores/AppStoreProvider';
 
 import { DateTime } from 'luxon';
 
+type TimeAndLocation = string;
+
+const LECTURE_TIME_AND_LOCATION: TimeAndLocation = '10:00 - 11:20 | NAN 181';
+const SECTION_TIME_AND_LOCATIONS: TimeAndLocation[] = [
+    '10:30 - 11:20 | MGH 058',
+    '11:30 - 12:20 | MGH 058',
+    '12:30 - 1:20 | MGH 058',
+    '1:30 - 2:20 | MGH 058'
+]
+
 export type CalendarDate = {
     date: DateTime
 }
@@ -20,21 +30,30 @@ type BaseCalendarItemDates = {
     dates: DateTime[]
 }
 
-export type AssignmentCalendarItem = BaseCalendarItemDates & {
-    type: 'assignment',
-    title: string,
+/**
+ * A calendar item location may be one or more locations.
+ */
+export type BaseCalendarItemTimeAndLocation = {
+    timeAndLocation: TimeAndLocation
+} | {
+    timeAndLocations: TimeAndLocation[]
 }
 
-export type LectureCalendarItem = BaseCalendarItemDates & {
+export type AssignmentCalendarItem = {
+    type: 'assignment',
+    title: string,
+} & BaseCalendarItemDates;
+
+export type LectureCalendarItem = {
     type: 'lecture',
     title: string,
     slides?: link,
-}
+} & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
-export type SectionCalendarItem = BaseCalendarItemDates & {
+export type SectionCalendarItem = {
     type: 'section',
     title: string,
-}
+} & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
 export type CalendarItem =
     AssignmentCalendarItem |
@@ -92,12 +111,14 @@ export class CourseCalendarStore {
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-03-29'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Introduction and Overview',
             slides: 'https://canvas.uw.edu/files/90196074/download?download_frd=1'
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-03-31'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design Diamond'
         },
         {
@@ -122,6 +143,7 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-05-31'),
                 DateTime.fromISO('2022-06-02'),
             ],
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Lecture'
         },
 
@@ -142,6 +164,7 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-05-27'),
                 DateTime.fromISO('2022-06-03'),
             ],
+            timeAndLocations: SECTION_TIME_AND_LOCATIONS,
             title: 'Section'
         },
 
