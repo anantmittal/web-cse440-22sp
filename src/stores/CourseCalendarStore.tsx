@@ -1,5 +1,5 @@
 import { link } from 'src/stores/CourseInformationStore';
-import { useAppStore } from '../stores/AppStoreProvider';
+import { useAppStore } from 'src/stores/AppStoreProvider';
 
 import { DateTime } from 'luxon';
 
@@ -12,6 +12,9 @@ const SECTION_TIME_AND_LOCATIONS: TimeAndLocation[] = [
     '12:30 - 1:20 | MGH 058',
     '1:30 - 2:20 | MGH 058'
 ]
+
+const OFFICE_HOUR_QISHING_TIME_AND_LOCATION: TimeAndLocation = '11:30 - 12:30 | CSE 3rd Floor Breakout';
+const OFFICE_HOUR_JESSE_TIME_AND_LOCATION: TimeAndLocation = '4:00 - 5:00 | Zoom';
 
 export type CalendarDate = {
     date: DateTime
@@ -49,11 +52,21 @@ export type AwayCalendarItem = {
     title: string,
 } & BaseCalendarItemDates;
 
+export type HolidayCalendarItem = {
+    type: 'holiday',
+    title: string,
+} & BaseCalendarItemDates;
+
 export type LectureCalendarItem = {
     type: 'lecture',
     title: string,
     slides?: link,
     video?: link,
+} & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
+
+export type OfficeHourCalendarItem = {
+    type: 'officehour',
+    title: string,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
 export type SectionCalendarItem = {
@@ -64,7 +77,9 @@ export type SectionCalendarItem = {
 export type CalendarItem =
     AssignmentCalendarItem |
     AwayCalendarItem |
+    HolidayCalendarItem |
     LectureCalendarItem |
+    OfficeHourCalendarItem |
     SectionCalendarItem;
 
 export class CourseCalendarStore {
@@ -128,6 +143,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-03-31'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design Diamond',
+            slides: 'https://canvas.uw.edu/files/90279502/download?download_frd=1',
         },
         {
             type: 'lecture',
@@ -296,18 +312,52 @@ export class CourseCalendarStore {
         },
 
         //
+        // Office Hour Calendar Items
+        //
+        {
+            type: 'officehour',
+            dates: [
+                DateTime.fromISO('2022-03-31'),
+                DateTime.fromISO('2022-04-07'),
+                DateTime.fromISO('2022-04-14'),
+                DateTime.fromISO('2022-04-21'),
+                DateTime.fromISO('2022-04-28'),
+                DateTime.fromISO('2022-05-12'),
+                DateTime.fromISO('2022-05-19'),
+                DateTime.fromISO('2022-05-26'),
+                DateTime.fromISO('2022-06-02'),
+            ],
+            title: 'Office Hour - Qishing',
+            timeAndLocation: OFFICE_HOUR_QISHING_TIME_AND_LOCATION,
+        },
+        {
+            type: 'officehour',
+            dates: [
+                DateTime.fromISO('2022-03-30'),
+                DateTime.fromISO('2022-04-06'),
+                DateTime.fromISO('2022-04-13'),
+                DateTime.fromISO('2022-04-20'),
+                DateTime.fromISO('2022-04-27'),
+                DateTime.fromISO('2022-05-11'),
+                DateTime.fromISO('2022-05-18'),
+                DateTime.fromISO('2022-05-25'),
+                DateTime.fromISO('2022-06-01'),
+            ],
+            title: 'Office Hour - Jesse',
+            timeAndLocation: OFFICE_HOUR_JESSE_TIME_AND_LOCATION,
+        },
+
+        //
         // Away Calendar Items
         //
         {
             type: 'away',
             dates: [
-                DateTime.fromISO('2022-05-02'),
-                DateTime.fromISO('2022-05-03'),
-                DateTime.fromISO('2022-05-04'),
-                DateTime.fromISO('2022-05-05'),
-                DateTime.fromISO('2022-05-06'),
+                DateTime.fromISO('2022-04-27'),
+                DateTime.fromISO('2022-04-28'),
+                DateTime.fromISO('2022-04-29'),
             ],
-            title: 'Anant Away',
+            title: 'James Away',
         },
         {
             type: 'away',
@@ -330,6 +380,27 @@ export class CourseCalendarStore {
             ],
             title: 'Qishing Away',
         },
+        {
+            type: 'away',
+            dates: [
+                DateTime.fromISO('2022-05-02'),
+                DateTime.fromISO('2022-05-03'),
+                DateTime.fromISO('2022-05-04'),
+                DateTime.fromISO('2022-05-05'),
+                DateTime.fromISO('2022-05-06'),
+                DateTime.fromISO('2022-05-27'),
+            ],
+            title: 'Anant Away',
+        },
+
+        //
+        // Holiday Calendar Items
+        //
+        {
+            type: 'holiday',
+            title: 'Memorial Day',
+            date: DateTime.fromISO('2022-05-30')
+        }
 
         //
     ];
