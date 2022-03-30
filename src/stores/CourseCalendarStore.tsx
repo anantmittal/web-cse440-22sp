@@ -156,43 +156,43 @@ export class CourseCalendarStore {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-05'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Design Research',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-07'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Critique',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-12'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Design of Everyday Things',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-14'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Human Performance',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-19'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Task Analysis',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-21'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Paper Prototyping and Testing',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-26'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Storyboarding',
         },
         {
             type: 'lecture',
@@ -204,43 +204,31 @@ export class CourseCalendarStore {
             type: 'lecture',
             date: DateTime.fromISO('2022-05-03'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
-        },
-        {
-            type: 'lecture',
-            date: DateTime.fromISO('2022-05-05'),
-            timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Guidance on Presentations',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-05-10'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Inspection',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-05-12'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Interface Implementation',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-05-19'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'Designing for Diverse Needs',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-05-24'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
-        },
-        {
-            type: 'lecture',
-            date: DateTime.fromISO('2022-05-26'),
-            timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
+            title: 'History',
         },
 
         //
@@ -334,7 +322,7 @@ export class CourseCalendarStore {
         },
         {
             type: 'assignment',
-            date: DateTime.fromISO('2022-05-05'),
+            date: DateTime.fromISO('2022-05-04'),
             title: '2p - Presentation',
         },
         {
@@ -369,7 +357,7 @@ export class CourseCalendarStore {
         },
         {
             type: 'assignment',
-            date: DateTime.fromISO('2022-05-26'),
+            date: DateTime.fromISO('2022-05-25'),
             title: '3p - Presentation',
         },
         {
@@ -486,8 +474,20 @@ export class CourseCalendarStore {
         {
             type: 'event',
             title: 'Presentations',
+            date: DateTime.fromISO('2022-05-05'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+        },
+        {
+            type: 'event',
+            title: 'Presentations',
             date: DateTime.fromISO('2022-05-06'),
             timeAndLocations: SECTION_TIME_AND_LOCATIONS,
+        },
+        {
+            type: 'event',
+            title: 'Presentations',
+            date: DateTime.fromISO('2022-05-26'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
         },
         {
             type: 'event',
