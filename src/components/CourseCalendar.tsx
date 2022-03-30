@@ -20,7 +20,7 @@ import {
     CalendarWeek,
     AssignmentCalendarItem,
     LectureCalendarItem,
-    SectionCalendarItem,
+    SectionCalendarItem, BaseCalendarItemTimeAndLocation,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
@@ -133,10 +133,26 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                             borderRadius: ".25rem",
                             padding: "4px",
                         }}>
-                            {calendarItem.title}<br />
-                            {calendarItem.slides != null &&
+                            {calendarItem.title}<br/>
+                            {renderTimeAndLocation(calendarItem)}
+                            {calendarItem.slides != undefined &&
                                 <React.Fragment>
-                                    [<a href={calendarItem.slides}>slides</a>]<br/>
+                                    [<a href={calendarItem.slides}>slides</a>]
+                                </React.Fragment>
+                            }
+                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                <React.Fragment>
+                                    {" "}
+                                </React.Fragment>
+                            }
+                            {calendarItem.video != undefined &&
+                                <React.Fragment>
+                                    [<a href={calendarItem.video}>video</a>]
+                                </React.Fragment>
+                            }
+                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                <React.Fragment>
+                                    <br/>
                                 </React.Fragment>
                             }
                         </Box>
@@ -166,7 +182,8 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                             borderRadius: ".25rem",
                             padding: "4px",
                         }}>
-                            {calendarItem.title}
+                            {calendarItem.title}<br/>
+                            {renderTimeAndLocation(calendarItem)}
                         </Box>
                     )
                 )
@@ -175,8 +192,26 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
     )
 }
 
-function renderCalendarItems(calendarDate: CalendarDate) {
+function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
+    return <React.Fragment>
+        {'timeAndLocation' in calendarItem &&
+            <React.Fragment>
+                {calendarItem.timeAndLocation}<br/>
+            </React.Fragment>
+        }
+        {'timeAndLocations' in calendarItem &&
+            <React.Fragment>
+                {calendarItem.timeAndLocations.map(timeAndLocationCurrent => {
+                    return <React.Fragment>
+                        {timeAndLocationCurrent}<br/>
+                    </React.Fragment>;
+                })}
+            </React.Fragment>
+        }
+    </React.Fragment>
+}
 
+function renderCalendarItems(calendarDate: CalendarDate) {
     return (
         <Stack spacing={0.5}>
             {renderLectureCalendarItems(calendarDate)}
