@@ -25,12 +25,12 @@ import {
     HolidayCalendarItem,
     LectureCalendarItem,
     OfficeHourCalendarItem,
-    SectionCalendarItem,
+    StudioCalendarItem,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
 
-const DATE_FORMAT = 'MMM d';
+const DATE_FORMAT = 'EEE MMM d';
 // const DATE_FORMAT_WITH_DAY = 'EEE MMM d';
 
 // function renderAssignment(assignmentCurrent: CalendarAssignment) {
@@ -288,8 +288,8 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
             {
                 (
                     store.courseCalendar.getCalendarItems(
-                        calendarDate, 'section'
-                    ) as SectionCalendarItem[]
+                        calendarDate, 'studio'
+                    ) as StudioCalendarItem[]
                 )
                 .map(
                     calendarItem => (
@@ -355,7 +355,7 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
     return (
-        <Grid container width="100%" spacing={1}>
+        <Grid container width="100%" spacing={2}>
             {calendarWeekCurrent.days.map(renderCalendarDate)}
         </Grid>
     );

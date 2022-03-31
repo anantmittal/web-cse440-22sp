@@ -75,8 +75,8 @@ export type OfficeHourCalendarItem = {
     title: string,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
-export type SectionCalendarItem = {
-    type: 'section',
+export type StudioCalendarItem = {
+    type: 'studio',
     title: string,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
@@ -87,7 +87,7 @@ export type CalendarItem =
     HolidayCalendarItem |
     LectureCalendarItem |
     OfficeHourCalendarItem |
-    SectionCalendarItem;
+    StudioCalendarItem;
 
 export class CourseCalendarStore {
     /**
@@ -160,12 +160,6 @@ export class CourseCalendarStore {
         },
         {
             type: 'lecture',
-            date: DateTime.fromISO('2022-04-07'),
-            timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Critique',
-        },
-        {
-            type: 'lecture',
             date: DateTime.fromISO('2022-04-12'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design of Everyday Things',
@@ -196,15 +190,9 @@ export class CourseCalendarStore {
         },
         {
             type: 'lecture',
-            date: DateTime.fromISO('2022-04-28'),
-            timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Lecture',
-        },
-        {
-            type: 'lecture',
             date: DateTime.fromISO('2022-05-03'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Guidance on Presentations',
+            title: 'Effective Presentations',
         },
         {
             type: 'lecture',
@@ -232,10 +220,16 @@ export class CourseCalendarStore {
         },
 
         //
-        // Lecture Calendar Items
+        // Studio Calendar Items
         //
         {
-            type: 'section',
+            type: 'studio',
+            date: DateTime.fromISO('2022-04-07'),
+            timeAndLocation: LECTURE_TIME_AND_LOCATION,
+            title: 'Introduction to Critique',
+        },
+        {
+            type: 'studio',
             dates: [
                 DateTime.fromISO('2022-04-01'),
                 DateTime.fromISO('2022-04-08'),
@@ -247,19 +241,17 @@ export class CourseCalendarStore {
                 DateTime.fromISO('2022-06-03'),
             ],
             timeAndLocations: SECTION_TIME_AND_LOCATIONS,
-            title: 'Section',
+            title: 'Studio',
         },
         {
-            type: 'section',
-            date: DateTime.fromISO('2022-05-31'),
+            type: 'studio',
+            dates: [
+                DateTime.fromISO('2022-04-28'),
+                DateTime.fromISO('2022-05-31'),
+                DateTime.fromISO('2022-06-02'),
+            ],
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Section',
-        },
-        {
-            type: 'section',
-            date: DateTime.fromISO('2022-06-02'),
-            timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Section',
+            title: 'Studio',
         },
 
         //
