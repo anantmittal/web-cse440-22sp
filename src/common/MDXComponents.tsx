@@ -19,7 +19,13 @@ export const MDXComponents: MDXProviderComponents = {
     },
     h3: props => {
         return (
-            <h3 id={anchorText(props.children)}>{props.children}</h3>
+            <h3 id={anchorText(props.children)}>
+                <a
+                    href={`#${anchorText(props.children)}`}
+                >
+                    {props.children}
+                </a>
+            </h3>
         )
     }
 };
