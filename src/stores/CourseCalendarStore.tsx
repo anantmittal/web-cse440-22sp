@@ -150,7 +150,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-03-31'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design Diamond',
-            slides: 'https://canvas.uw.edu/files/90279502/download?download_frd=1',
+            slides: 'https://canvas.uw.edu/files/90287283/download?download_frd=1',
         },
         {
             type: 'lecture',
