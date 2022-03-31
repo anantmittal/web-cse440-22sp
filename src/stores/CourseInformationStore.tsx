@@ -53,6 +53,7 @@ export class CourseInformationStore {
     dueDateAssignment1b: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-04-06') + '.';
     linkCanvasAssignment1b: link = 'https://canvas.uw.edu/courses/1545349/assignments/7281788';
+    linkCanvasAssignment1b_revised: link = null;
 
     dueDateAssignment1c: dueDate =
         'Uploaded 11:59pm ' + formatDateString('2022-04-11') + '.';
@@ -78,6 +79,7 @@ export class CourseInformationStore {
 
     dueDateAssignment2f: dueDate = null;
     linkCanvasAssignment2f: link = null;
+    linkCanvasAssignment2f_revised: link = null;
 
     dueDateAssignment2g: dueDate = null;
     linkCanvasAssignment2g: link = null;

@@ -12,7 +12,7 @@ const SECTION_TIME_AND_LOCATIONS: TimeAndLocation[] = [
     '12:30 - 1:20 | MGH 058',
     '1:30 - 2:20 | MGH 058'
 ]
-const POSTER_SESSION_TIME_AND_LOCATION: TimeAndLocation = '11:00 - 11:50 | CSE Atrium';
+const POSTER_SESSION_TIME_AND_LOCATION: TimeAndLocation = '11:00 - 12:00 | CSE Atrium';
 
 const OFFICE_HOUR_QISHENG_TIME_AND_LOCATION: TimeAndLocation = '11:30 - 12:30 | CSE 3rd Floor Breakout';
 const OFFICE_HOUR_JESSE_TIME_AND_LOCATION: TimeAndLocation = '4:00 - 5:00 | Zoom';
@@ -274,8 +274,13 @@ export class CourseCalendarStore {
         },
         {
             type: 'assignment',
+            date: DateTime.fromISO('2022-04-07'),
+            title: '1b_rev - Group Proposals',
+        },
+        {
+            type: 'assignment',
             date: DateTime.fromISO('2022-04-11'),
-            title: '1c - Revised Proposal',
+            title: '1c - Finalized Proposal',
         },
         {
             type: 'assignment',
@@ -304,8 +309,13 @@ export class CourseCalendarStore {
         },
         {
             type: 'assignment',
-            date: DateTime.fromISO('2022-04-28'),
+            date: DateTime.fromISO('2022-04-27'),
             title: '2f - Design Check-In',
+        },
+        {
+            type: 'assignment',
+            date: DateTime.fromISO('2022-04-28'),
+            title: '2f_rev - Design Check-In',
         },
         {
             type: 'assignment',
