@@ -12,7 +12,7 @@ import {MDXProvider} from '@mdx-js/react';
 
 import {App} from "./App"
 import {AppTheme} from './AppTheme'
-import {MDXComponents} from '../common/MDXComponents';
+import {MDXComponents} from 'src/common/MDXComponents';
 import {MobxRouter} from '../common/MobxRouter';
 import {createAppStore} from "../stores/AppStore";
 import {AppStoreProvider} from '../stores/AppStoreProvider';

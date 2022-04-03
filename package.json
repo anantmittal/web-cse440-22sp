@@ -23,7 +23,12 @@
         "source": "dist",
         "publicPath": "/courses/cse440/22sp/"
     },
-    "@comment dependencies": [],
+    "@comment dependencies": [
+        "mobx-react-router",
+        "- See https://github.com/superwf/mobx-react-router",
+        "- 2021-8-16 update to v7 for compatible with history v5, mobx v6, react-router v5 and path-to-regexp v6",
+        "- Appears to work fine with react-router v6"
+    ],
     "dependencies": {
         "@emotion/react": "11.x",
         "@emotion/styled": "11.x",
@@ -49,7 +54,8 @@
         "eslint": "*",
         "express": "*",
         "html-webpack-plugin": "*",
-        "@mdx-js/loader": "*",
+        "@mdx-js/loader": "2.x",
+        "@mdx-js/react": "2.x",
         "react-snap": "*",
         "rimraf": "*",
         "ts-loader": "*",
