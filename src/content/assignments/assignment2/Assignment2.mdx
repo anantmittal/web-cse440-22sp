@@ -1,6 +1,13 @@
 import {
     Alert,
+    Box,
 } from '@mui/material';
+
+import * as React from "react";
+
+import {
+    CollapseProjectMilestone
+} from 'src/common/CollapseProjectMilestone';
 
 import {
     CourseInformationDueDate,
@@ -21,9 +28,11 @@ Even when a problem is well-motivated, understanding that problem and choosing a
 This group assignment, spanning multiple weeks of the course, tackles the problem of selecting the right design through
 __design research__, __task development__, __generating multiple potential designs__, and finally __selecting a design__ to pursue.
 
-### Milestones
+## Milestones and Deliverables
 
-This is a group assignment, consisting of nine milestones.
+This is a group assignment, consisting of eight milestones.
+
+{/*
 
 - [Assignment 2a: Project Ideation](#id-2a-project-ideation)
 
@@ -62,10 +71,9 @@ This is a group assignment, consisting of nine milestones.
   <p><CourseInformationDueDate dueDateName='dueDateAssignment2web' /></p>
 
 ## Deliverables
+*/}
 
-### 2a: Project Ideation
-
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2a' /></p>
+<CollapseProjectMilestone heading='2a: Project Ideation' dueDateName='dueDateAssignment2a'>
 
 The goal of this milestone is to begin thinking about how to plan effective design research to inform your design process.
 
@@ -98,9 +106,9 @@ Following up on the above, additionally brainstorm:
 
 There is no submission for this milestone.
 
-### 2b: Design Research Plan
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2b' /></p>
+<CollapseProjectMilestone heading='2b: Design Research Plan' dueDateName='dueDateAssignment2b'>
 
 The goal of this milestone is to develop an initial plan for your design research,
 encouraging you to work through details of how you would conduct that research
@@ -177,9 +185,9 @@ This milestone will be graded on a scale of __10 points__:
 3. __Primary Method Details__: (2 points)
 4. __Clarity and Presentation__: (2 points)
 
-### 2c: Design Research Check-In
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2c' /></p>
+<CollapseProjectMilestone heading='2c: Design Research Check-In' dueDateName='dueDateAssignment2c'>
 
 The goal of this milestone is to begin your design research,
 reflect on what you observe and learn,
@@ -234,9 +242,9 @@ This milestone will be graded on a scale of __8 points__:
 2. __Plan for Remaining Participants__: (2 points)
 3. __Clarity and Presentation__: (2 points)
 
-### 2d: Design Research Review
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2d' /></p>
+<CollapseProjectMilestone heading='2d: Design Research Review' dueDateName='dueDateAssignment2d'>
 
 The goal of this milestone is to reflect on what you observed and learned in your design research,
 organizing observations around themes and developing insights into tasks that can help inform your design.
@@ -314,9 +322,9 @@ This milestone will be graded on a scale of __12 points__:
 3. __Answers to Task Analysis Questions__: (4 points)
 4. __Clarity and Presentation__: (2 points)
 
-### 2e: Task Review
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2e' /></p>
+<CollapseProjectMilestone heading='2e: Task Review' dueDateName='dueDateAssignment2e'>
 
 The goal of this milestone is to develop a set of tasks that you will explore in a set of potential designs.
 
@@ -370,9 +378,9 @@ This milestone will be graded on a scale of __8 points__:
 1. __Each of 6 Tasks__: (1 point)
 2. __Clarity and Presentation__: (2 points)
 
-### 2f: Design Check-In ("3x4")
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2f' /></p>
+<CollapseProjectMilestone heading='2f: Design Check-In ("3x4")' dueDateName='dueDateAssignment2f'>
 
 The goal of this milestone is to develop distinct design ideas that address your tasks.
 
@@ -435,9 +443,9 @@ This milestone will be graded on a scale of __10 points__:
 2. __Each of 3 Designs is Substantially Different and Clearly Communicated__: (2 points)
 3. __Clarity and Presentation__: (2 points)
 
-### 2g: Design Review ("1x2")
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2g' /></p>
+<CollapseProjectMilestone heading='2g: Design Review ("1x2")' dueDateName='dueDateAssignment2g'>
 
 The goal of this milestone is to choose a design idea to pursue in the remainder of this course.
 
@@ -498,9 +506,9 @@ This milestone will be graded on a scale of __8 points__:
 2. __Each of 2 Storyboards__: (2 points)
 3. __Clarity and Presentation__: (2 points)
 
-### 2p: Presentation
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment2p' /></p>
+<CollapseProjectMilestone heading='2p: Presentation' dueDateName='dueDateAssignment2p'>
 
 The goal of this milestone is to effectively communicate your design research in a presentation.
 
@@ -614,6 +622,9 @@ The delivery of this presentation will be graded on a scale of __4 points__:
 - Presenter feels engaged with the content, not just reading slides.
 - Presenter covers the required scope within the allowed time.
 
+</CollapseProjectMilestone>
+
+{/*
 ### 2web: Getting the Right Design
 
 <p><CourseInformationDueDate dueDateName='dueDateAssignment2web' /></p>
@@ -726,7 +737,7 @@ Ensure your post is appropriately clear and easy to read. This includes:
 
 {/* Samples from Prior Offerings
 <app-assignment-samples sampleToLink="2web"></app-assignment-samples>
-*/}
+* / }
 
 #### Submission
 
@@ -758,7 +769,7 @@ Name the file `designresearch.md`. In addition to your Markdown file, you will a
    These will be placed in the same directory as your rendered Markdown file.
    Instead of Markdown's image syntax, consider incorporating `img` tags directly in your Markdown,
    thus allowing you to specify the rendering size of the image.
-*/}
+* / }
 
 Names of participants should be replaced with pseudonyms in all documents.
 It is important to protect participant anonymity, even in the case that reporting seems harmless.
@@ -788,3 +799,5 @@ The content for this post will be graded on a scale of __24 points__:
 8.  __Justification of Selected Design__: (1 points)
 9.  __Storyboards of the Selected Design__: (2 points)
 10. __Clarity and Presentation__: (4 points)
+
+*/}
