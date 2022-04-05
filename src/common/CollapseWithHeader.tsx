@@ -9,11 +9,14 @@ import {
 //     SxProps,
 } from "@mui/material";
 
+import IconButton from '@mui/material/IconButton';
+
 import {
     ExpandCircleDownOutlined
 } from '@mui/icons-material'
 
 import * as React from "react";
+
 
 //
 // Properties
@@ -21,6 +24,8 @@ import * as React from "react";
 interface CollapseWithHeaderProps extends React.PropsWithChildren<{}> {
     header: React.ReactElement
 }
+
+
 
 /**
  */
@@ -49,7 +54,9 @@ export const CollapseWithHeader: React.FunctionComponent<CollapseWithHeaderProps
             <Box sx={{margin: 2}} onClick={toggleExpanded}>
                 <Box sx={{display: "flex", alignItems: "baseline", justifyContent: "space-between"}}>
                     {props.header}
-                    <ExpandCircleDownOutlined  sx={{transform: rotation}}/>
+                    <IconButton aria-label="show more">
+                        <ExpandCircleDownOutlined  sx={{transform: rotation}}/>
+                    </IconButton>
                 </Box>
                 <Collapse in={expanded} mountOnEnter unmountOnExit>
                     {props.children}
