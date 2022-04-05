@@ -124,6 +124,96 @@ export class CourseInformationStore {
 
     dueDateAssignment4p: dueDate = null;
 
+    //
+    // Samples
+    //
+    projectSamples = [
+        {
+            name: 'BackTrack',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/backtrack/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491667/',
+            }
+        },
+        {
+            name: 'BookWurm',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/bookwurm/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491675/',
+            }
+        },
+        {
+            name: 'Dash',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/dash/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491685/',
+            }
+        },
+        {
+            name: 'Hermes',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/hermes/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491690/',
+            }
+        },
+        {
+            name: 'Jasper',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/jasper/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491701/',
+            }
+        },
+        {
+            name: 'Laundr',
+            link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/laundr/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491707/',
+            }
+        },
+        {
+            name: 'notE',
+            link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/note/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491732/',
+            }
+        },
+        {
+            name: 'Pawsitive',
+            link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/pawsitive/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491738/',
+            }
+        },
+        {
+            name: 'Pilltender',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/pilltender/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491745/',
+            }
+        },
+        {
+            name: 'SEEK',
+            link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/seek/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491755/',
+            }
+        },
+        {
+            name: 'SimPark',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/simpark/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491761/',
+            }
+        },
+        {
+            name: 'Wishing Well',
+            link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/wishingwell/',
+            samples: {
+                '1c': 'https://canvas.uw.edu/files/90491772/',
+            }
+        }
+    ]
+
     // // Link regarding accessible presentations
     // // linkAccessiblePresentations: link = 'https://interactions.acm.org/archive/view/july-august-2017/making-your-presentation-accessible'
     //
