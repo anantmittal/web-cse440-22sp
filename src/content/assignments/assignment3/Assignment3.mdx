@@ -2,6 +2,12 @@ import {
     Alert,
 } from '@mui/material';
 
+import * as React from "react";
+
+import {
+    CollapseProjectMilestone
+} from 'src/common/CollapseProjectMilestone';
+
 import {
     CourseInformationDueDate,
     CourseInformationLink,
@@ -22,10 +28,11 @@ This group assignment, spanning multiple weeks of the course, tackles the proble
 of getting the design right through __paper prototyping__, __inspection__, and
 __usability testing__. Design refinement culminates in a __digital mockup__.
 
-## Milestones
+## Milestones and Deliverables
 
-This is a group assignment, consisting of five milestones.
+This is a group assignment, consisting of six milestones.
 
+{/*
 - [Assignment 3a: Paper Prototype](#id-3a-paper-prototype)
 
   <p><CourseInformationDueDate dueDateName='dueDateAssignment3a' /></p>
@@ -55,10 +62,11 @@ This is a group assignment, consisting of five milestones.
   <p><CourseInformationDueDate dueDateName='dueDateAssignment3web' /></p>
 
 ## Deliverables
+*/}
 
-### 3a: Paper Prototype
+<CollapseProjectMilestone heading='3a: Paper Prototype' dueDateName='dueDateAssignment3a'>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment3a' /></p>
+
 
 The goal of this milestone is to develop an initial paper prototype that will begin to allow testing of your design.
 
@@ -106,9 +114,11 @@ This milestone will be graded on a scale of __12 points__:
 2. __Completeness, Appropriateness, and Documentation of Each Task__: (2 x 3 points)
 3. __Clarity and Presentation__: (2 points)
 
-### 3b: Heuristic Evaluation
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment3b' /></p>
+<CollapseProjectMilestone heading='3b: Heuristic Evaluation' dueDateName='dueDateAssignment3b'>
+
+
 
 The goal of this milestone is to conduct heuristic evaluations as part of rapidly iterating on your paper prototype.
 
@@ -144,9 +154,10 @@ Records of your inspection-based methods will be submitted as part of later assi
 
 Be sure to keep detailed records, including images of relevant portions of the prototype before and after revisions.
 
-### 3c: Usability Testing Check-In
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment3c' /></p>
+<CollapseProjectMilestone heading='3c: Usability Testing Check-In' dueDateName='dueDateAssignment3c'>
+
 
 The goal of this milestone is to document changes resulting from your inspection-based analyses
 and to begin usability testing of your revised prototype with participants.
@@ -256,9 +267,11 @@ This milestone will be graded on a scale of __14 points__:
 4. __Updated Images of Paper Prototype__: (3 points)
 5. __Clarity and Presentation__: (2 points)
 
-### 3d: Usability Testing Review
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment3d' /></p>
+<CollapseProjectMilestone heading='3d: Usability Testing Review' dueDateName='dueDateAssignment3d'>
+
+
 
 The goal of this milestone is to complete usability testing of your prototype with participants.
 
@@ -326,9 +339,11 @@ This milestone will be graded on a scale of __14 points__:
 4. __Discussion of Key Revisions in Design Process__: (4 points)
 5. __Clarity and Presentation__: (2 points)
 
-### 3e: Digital Mockup
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment3e' /></p>
+<CollapseProjectMilestone heading='3e: Digital Mockup' dueDateName='dueDateAssignment3e'>
+
+
 
 The goal of this milestone is to transition your prototype into a digital mockup of your design.
 
@@ -419,9 +434,11 @@ This milestone will be graded on a scale of __14 points__:
 3. __Discussion of Decisions and Changes in Implementation__: (3 points)
 4. __Clarity and Presentation__: (2 points)
 
-### 3p: Presentation
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment3p' /></p>
+<CollapseProjectMilestone heading='3p: Presentation' dueDateName='dueDateAssignment3p'>
+
+
 
 The goal of this milestone is to effectively communicate your design prototyping in a presentation.
 
@@ -543,6 +560,9 @@ The delivery of this presentation will be graded on a scale of __4 points__:
 - Presenter feels engaged with the content, not just reading slides.
 - Presenter covers the required scope within the allowed time.
 
+</CollapseProjectMilestone>
+
+{/*
 ### 3web: Getting the Design Right
 
 <p><CourseInformationDueDate dueDateName='dueDateAssignment3web' /></p>
@@ -628,7 +648,7 @@ Ensure your post is appropriately clear and easy to read. This includes:
 
 {/* Samples from Prior Offerings
 <app-assignment-samples sampleToLink="3web"></app-assignment-samples>
-*/}
+* / }
 
 #### Submission
 
@@ -661,7 +681,7 @@ so ensure there are no naming conflicts in your image files.
 For guidance on formatting your Markdown and its included images, see the source files from prior posts:
 
 [https://github.com/uwcse440/web-cse440-wi20/tree/master/angular-workspace/src/assets/projects](https://github.com/uwcse440/web-cse440-wi20/tree/master/angular-workspace/src/assets/projects)
-*/}
+* / }
 
 Names of participants should be replaced with pseudonyms in all documents.
 It is important to protect participant anonymity, even in the case that reporting seems harmless.
@@ -690,3 +710,5 @@ This report will be graded on a scale of __24 points__:
 7.  __Final Paper Prototype__: (3 points)
 8.  __Digital Mockup__: (3 points)
 10. __Clarity and Presentation__: (4 points)
+
+*/}

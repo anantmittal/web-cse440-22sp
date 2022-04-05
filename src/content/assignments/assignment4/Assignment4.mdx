@@ -2,6 +2,12 @@ import {
     Alert,
 } from '@mui/material';
 
+import * as React from "react";
+
+import {
+    CollapseProjectMilestone
+} from 'src/common/CollapseProjectMilestone';
+
 import {
     CourseInformationDueDate,
     CourseInformationLink,
@@ -21,9 +27,11 @@ You have identified a problem, explored a design space, selected a promising des
 It is now time to focus on communicating your design and your design process.
 This group assignment communicates your design through a __poster__ and an associated __pitch__.
 
-## Milestones
+## Milestones and Deliverables
 
-This is a group assignment, consisting of six milestones.
+This is a group assignment, consisting of three milestones.
+
+{/*
 
 * [Assignment 4a: Initial Poster and Pitch](#id-4a-initial-poster-and-pitch)
 
@@ -39,9 +47,12 @@ This is a group assignment, consisting of six milestones.
 
 ## Deliverables
 
-### 4a: Initial Poster and Pitch
+*/}
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment4a' /></p>
+<CollapseProjectMilestone heading='4a: Initial Poster and Pitch' dueDateName='dueDateAssignment4a'>
+
+
+
 
 The goal of this milestone is to create a poster and a pitch that communicate your design to a broad audience.
 
@@ -111,10 +122,9 @@ This milestone will be graded on a scale of __10 points__:
 
 Your poster should be complete and will be evaluated as such.
 Later critique and refinement will help further improve it before a final version.
+</CollapseProjectMilestone>
 
-### 4b: Final Poster and Pitch
-
-<p><CourseInformationDueDate dueDateName='dueDateAssignment4b' /></p>
+<CollapseProjectMilestone heading='4b: Final Poster and Pitch' dueDateName='dueDateAssignment4b'>
 
 Appropriately revise your poster according to feedback.
 
@@ -156,9 +166,11 @@ This milestone will be graded on a scale of __10 points__:
   - Test is minimal and appropriate, large and legible.
   - Colors and fonts are a pleasing combination and easy to read.
 
-### 4p: Poster Session
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment4p' /></p>
+<CollapseProjectMilestone heading='4p: Poster Session' dueDateName='dueDateAssignment4p'>
+
+
 
 Come to the poster session to show off your work and engage with your classmates.
 Present your pitch to a team of judges,
@@ -168,3 +180,4 @@ and take the opportunity to discuss your work with classmates and visitors while
 
 The poster session will be graded as part of participation.
 We intentionally will not conduct any evaluation at the poster session itself.
+</CollapseProjectMilestone>

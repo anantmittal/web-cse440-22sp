@@ -2,6 +2,12 @@ import {
     Alert,
 } from '@mui/material';
 
+import * as React from "react";
+
+import {
+    CollapseProjectMilestone
+} from 'src/common/CollapseProjectMilestone';
+
 import {
     CourseInformationDueDate,
     CourseInformationLink,
@@ -24,21 +30,6 @@ You are to propose a __problem__ and an __approach__ that could form the basis o
 Successful projects will observe the need for good human-centered design in an interactive computing system,
 analyze the needs and opportunities in the problem, explore potential designs, and propose a compelling solution.
 
-### Milestones
-
-This is an individual assignment, consisting of three milestones.
-
-- [Assignment 1a: Individual Brainstorm](#1a-individual-brainstorm)
-
-  <p><CourseInformationDueDate dueDateName='dueDateAssignment1a' /></p>
-
-- [Assignment 1b: Group Proposals](#1b-group-proposals)
-
-  <p><CourseInformationDueDate dueDateName='dueDateAssignment1b' /></p>
-
-- [Assignment 1c: Revised Proposal](#1c-revised-proposal)
-
-  <p><CourseInformationDueDate dueDateName='dueDateAssignment1c' /></p>
 
 ### Project Theme
 
@@ -154,11 +145,27 @@ But you will ultimately follow your design process where it leads you, which may
 Focusing on problems and opportunities, rather than specific design features,
 will leave room for your design to emerge and be refined in the course of this project.
 
-## Deliverables
+## Milestones and Deliverables
 
-### 1a: Individual Brainstorm
+This is an individual assignment, consisting of three milestones.
+
+{/*
+- [Assignment 1a: Individual Brainstorm](#1a-individual-brainstorm)
 
 <p><CourseInformationDueDate dueDateName='dueDateAssignment1a' /></p>
+
+- [Assignment 1b: Group Proposals](#1b-group-proposals)
+
+<p><CourseInformationDueDate dueDateName='dueDateAssignment1b' /></p>
+
+- [Assignment 1c: Revised Proposal](#1c-revised-proposal)
+
+<p><CourseInformationDueDate dueDateName='dueDateAssignment1c' /></p>
+
+*/}
+
+<CollapseProjectMilestone heading='1a: Individual Brainstorm' dueDateName='dueDateAssignment1a'>
+
 
 The goal of this milestone is to help get you started in thinking of some ideas for a potential projects.
 Friday's section will then build on these in brainstorming additional potential directions for project proposals.
@@ -216,9 +223,9 @@ This milestone will be graded on a scale of __3 points__:
 
 As noted above, at most one of your ideas may come from the domains listed above (i.e., finances, wellness, health, mood).
 
-### 1b: Group Proposals
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment1b' /></p>
+<CollapseProjectMilestone heading='1b: Group Proposals' dueDateName='dueDateAssignment1b'>
 
 The goal of this milestone is to propose multiple specific problems that could form the basis of a design project for this class.
 Friday's section will then include presenting these for feedback from peers and course staff.
@@ -280,9 +287,10 @@ This milestone will be graded on a scale of __10 points__:
 We will primarily grade the revised version of your submission,
 but may also apply a penalty if the original submission was severely underdeveloped or otherwise problematic.
 
-### 1c: Finalized Proposal
+</CollapseProjectMilestone>
 
-<p><CourseInformationDueDate dueDateName='dueDateAssignment1c' /></p>
+<CollapseProjectMilestone heading='1c: Finalized Proposal' dueDateName='dueDateAssignment1c'>
+
 
 The goal of this milestone is to propose and analyze a problem that will form the basis of a design project for this class.
 You should build upon the feedback you have received from peers and course staff.
@@ -325,3 +333,4 @@ This milestone will be graded on a scale of __10 points__:
 2. __Analysis of Problem__: (3 points)
 3. __Novelty and Creativity__: (2 points)
 4. __Clarity and Presentation__: (2 points)
+</CollapseProjectMilestone>
