@@ -62,29 +62,37 @@ export class CourseInformationStore {
     //
     // Assignment 2
     //
-    dueDateAssignment2a: dueDate = null;
+    dueDateAssignment2a: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-12') + '.';
     linkCanvasAssignment2a: link = null;
 
-    dueDateAssignment2b: dueDate = null;
+    dueDateAssignment2b: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-14') + '.';
     linkCanvasAssignment2b: link = null;
 
-    dueDateAssignment2c: dueDate = null;
+    dueDateAssignment2c: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-18') + '.';
     linkCanvasAssignment2c: link = null;
 
-    dueDateAssignment2d: dueDate = null;
+    dueDateAssignment2d: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-21') + '.';
     linkCanvasAssignment2d: link = null;
 
-    dueDateAssignment2e: dueDate = null;
+    dueDateAssignment2e: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-25') + '.';
     linkCanvasAssignment2e: link = null;
 
-    dueDateAssignment2f: dueDate = null;
+    dueDateAssignment2f: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-04-27') + '.';
     linkCanvasAssignment2f: link = null;
     linkCanvasAssignment2f_revised: link = null;
 
-    dueDateAssignment2g: dueDate = null;
+    dueDateAssignment2g: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-05-02') + '.';
     linkCanvasAssignment2g: link = null;
 
-    dueDateAssignment2p: dueDate = null;
+    dueDateAssignment2p: dueDate =
+        'Uploaded 11:59pm ' + formatDateString('2022-05-04') + '.';
     linkCanvasAssignment2p: link = null;
 
     dueDateAssignment2web: dueDate = null;
