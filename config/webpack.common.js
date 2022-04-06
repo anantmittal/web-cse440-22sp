@@ -43,7 +43,12 @@ module.exports = {
                             presets: ['@babel/env', '@babel/react']
                         }
                     },
-                    '@mdx-js/loader'
+                    {
+                        loader: '@mdx-js/loader',
+                        options: {
+                            providerImportSource: '@mdx-js/react'
+                        }
+                    }
                 ],
                 exclude: "/node_modules/",
             },
