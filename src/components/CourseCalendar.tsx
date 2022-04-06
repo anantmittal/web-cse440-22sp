@@ -301,6 +301,11 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                         }}>
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
+                            {calendarItem.slides != undefined &&
+                                <React.Fragment>
+                                    [<a href={calendarItem.slides}>slides</a>]
+                                </React.Fragment>
+                            }
                         </Box>
                     )
                 )

@@ -78,6 +78,7 @@ export type OfficeHourCalendarItem = {
 export type StudioCalendarItem = {
     type: 'studio',
     title: string,
+    slides?: link,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
 export type CalendarItem =
@@ -151,13 +152,15 @@ export class CourseCalendarStore {
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design Diamond',
             slides: 'https://canvas.uw.edu/files/90287283/',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d87db58-194d-40c9-a9e4-ae69015c8bba',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-05'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            slides: 'https://canvas.uw.edu/files/90477964/',
             title: 'Design Research',
+            slides: 'https://canvas.uw.edu/files/90477964/',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=31bef616-e417-4038-96ec-ae6e01472a01',
         },
         {
             type: 'lecture',
@@ -228,6 +231,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-07'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Introduction to Critique',
+            slides: 'https://canvas.uw.edu/files/90565435/',
         },
         {
             type: 'studio',
