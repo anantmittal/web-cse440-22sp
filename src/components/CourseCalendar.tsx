@@ -102,18 +102,21 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'assignment'
                     ) as AssignmentCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightgreen",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box
+                                sx={{
+                                    backgroundColor: "lightgreen",
+                                    fontSize: "small",
+                                    borderRadius: ".25rem",
+                                    padding: "4px",
+                                }}
+                                key={calendarItem.title}
+                            >
+                                {calendarItem.title}
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
     )
@@ -130,21 +133,22 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'away'
                     ) as AwayCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightpink",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box sx={{
+                                backgroundColor: "lightpink",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}>
+                                {calendarItem.title}
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
-    )}
+    )
+}
 
 function renderEventCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
@@ -157,19 +161,19 @@ function renderEventCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'event'
                     ) as EventCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lavender",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}<br/>
-                            {renderTimeAndLocation(calendarItem)}
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box sx={{
+                                backgroundColor: "lavender",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}>
+                                {calendarItem.title}<br />
+                                {renderTimeAndLocation(calendarItem)}
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
     )
@@ -186,21 +190,22 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'holiday'
                     ) as HolidayCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "orange",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box sx={{
+                                backgroundColor: "orange",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}>
+                                {calendarItem.title}
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
-    )}
+    )
+}
 
 function renderLectureCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
@@ -213,39 +218,34 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'lecture'
                     ) as LectureCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightsalmon",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}<br/>
-                            {renderTimeAndLocation(calendarItem)}
-                            {calendarItem.slides != undefined &&
-                                <React.Fragment>
-                                    [<a href={calendarItem.slides}>slides</a>]
-                                </React.Fragment>
-                            }
-                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
-                                <React.Fragment>
-                                    {" "}
-                                </React.Fragment>
-                            }
-                            {calendarItem.video != undefined &&
-                                <React.Fragment>
-                                    [<a href={calendarItem.video}>video</a>]
-                                </React.Fragment>
-                            }
-                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
-                                <React.Fragment>
-                                    <br/>
-                                </React.Fragment>
-                            }
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box sx={{ backgroundColor: "lightsalmon", fontSize: "small", borderRadius: ".25rem", padding: "4px", }} key={calendarItem.title}>
+                                {calendarItem.title}<br />
+                                {renderTimeAndLocation(calendarItem)}
+                                {calendarItem.slides != undefined &&
+                                    <React.Fragment>
+                                        [<a href={calendarItem.slides}>slides</a>]
+                                    </React.Fragment>
+                                }
+                                {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                    <React.Fragment>
+                                        {" "}
+                                    </React.Fragment>
+                                }
+                                {calendarItem.video != undefined &&
+                                    <React.Fragment>
+                                        [<a href={calendarItem.video}>video</a>]
+                                    </React.Fragment>
+                                }
+                                {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                    <React.Fragment>
+                                        <br />
+                                    </React.Fragment>
+                                }
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
     )
@@ -262,19 +262,22 @@ function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'officehour'
                     ) as OfficeHourCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightgoldenrodyellow",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}<br/>
-                            {renderTimeAndLocation(calendarItem)}
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box
+                                sx={{
+                                    backgroundColor: "lightgoldenrodyellow",
+                                    fontSize: "small",
+                                    borderRadius: ".25rem",
+                                    padding: "4px",
+                                }}
+                                key={calendarItem.title}
+                            >
+                                {calendarItem.title}<br />
+                                {renderTimeAndLocation(calendarItem)}
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
     )
@@ -291,34 +294,34 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                         calendarDate, 'studio'
                     ) as StudioCalendarItem[]
                 )
-                .map(
-                    calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightblue",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
-                            {calendarItem.title}<br/>
-                            {renderTimeAndLocation(calendarItem)}
-                            {calendarItem.slides != undefined &&
-                                <React.Fragment>
-                                    [<a href={calendarItem.slides}>slides</a>]
-                                </React.Fragment>
-                            }
-                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
-                                <React.Fragment>
-                                    {" "}
-                                </React.Fragment>
-                            }
-                            {calendarItem.video != undefined &&
-                                <React.Fragment>
-                                    [<a href={calendarItem.video}>video</a>]
-                                </React.Fragment>
-                            }
-                        </Box>
+                    .map(
+                        calendarItem => (
+                            <Box sx={{
+                                backgroundColor: "lightblue",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}>
+                                {calendarItem.title}<br />
+                                {renderTimeAndLocation(calendarItem)}
+                                {calendarItem.slides != undefined &&
+                                    <React.Fragment>
+                                        [<a href={calendarItem.slides}>slides</a>]
+                                    </React.Fragment>
+                                }
+                                {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                    <React.Fragment>
+                                        {" "}
+                                    </React.Fragment>
+                                }
+                                {calendarItem.video != undefined &&
+                                    <React.Fragment>
+                                        [<a href={calendarItem.video}>video</a>]
+                                    </React.Fragment>
+                                }
+                            </Box>
+                        )
                     )
-                )
             }
         </React.Fragment>
     )
@@ -328,14 +331,14 @@ function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
     return <React.Fragment>
         {'timeAndLocation' in calendarItem &&
             <React.Fragment>
-                {calendarItem.timeAndLocation}<br/>
+                {calendarItem.timeAndLocation}<br />
             </React.Fragment>
         }
         {'timeAndLocations' in calendarItem &&
             <React.Fragment>
                 {calendarItem.timeAndLocations.map(timeAndLocationCurrent => {
                     return <React.Fragment>
-                        {timeAndLocationCurrent}<br/>
+                        {timeAndLocationCurrent}<br />
                     </React.Fragment>;
                 })}
             </React.Fragment>
@@ -359,7 +362,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item xs>
+        <Grid item xs={12} sm md key={calendarDate.date.toFormat(DATE_FORMAT)}>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
@@ -369,8 +372,10 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 }
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
+    // Assign Monday's date of every week as key
+    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT);
     return (
-        <Grid container width="100%" spacing={2}>
+        <Grid container width="100%" spacing={2} key={key}>
             {calendarWeekCurrent.days.map(renderCalendarDate)}
         </Grid>
     );
@@ -381,9 +386,7 @@ export const CourseCalendar: React.FunctionComponent = () => {
 
     return (
         <React.Fragment>
-            <Stack spacing={2}>
-                {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
-            </Stack>
+            {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
         </React.Fragment>
     );
 }
