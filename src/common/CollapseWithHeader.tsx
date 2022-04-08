@@ -51,8 +51,8 @@ export const CollapseWithHeader: React.FunctionComponent<CollapseWithHeaderProps
 
     return <React.Fragment>
         <Paper elevation={1}>
-            <Box sx={{margin: 2}} onClick={toggleExpanded}>
-                <Box sx={{display: "flex", alignItems: "baseline", justifyContent: "space-between"}}>
+            <Box sx={{margin: 2}} >
+                <Box sx={{display: "flex", alignItems: "baseline", justifyContent: "space-between"}} onClick={toggleExpanded}>
                     {props.header}
                     <IconButton aria-label="show more">
                         <ExpandCircleDownOutlined  sx={{transform: rotation}}/>
