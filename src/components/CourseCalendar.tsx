@@ -306,6 +306,16 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                                     [<a href={calendarItem.slides}>slides</a>]
                                 </React.Fragment>
                             }
+                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                <React.Fragment>
+                                    {" "}
+                                </React.Fragment>
+                            }
+                            {calendarItem.video != undefined &&
+                                <React.Fragment>
+                                    [<a href={calendarItem.video}>video</a>]
+                                </React.Fragment>
+                            }
                         </Box>
                     )
                 )
