@@ -63,8 +63,8 @@ export type HolidayCalendarItem = {
     title: string,
 } & BaseCalendarItemDates;
 
-export type LectureCalendarItem = {
-    type: 'lecture',
+export type LectureAndStudioCalendarItem = {
+    type: 'lecture' | 'studio',
     title: string,
     slides?: link,
     video?: link,
@@ -75,21 +75,14 @@ export type OfficeHourCalendarItem = {
     title: string,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
-export type StudioCalendarItem = {
-    type: 'studio',
-    title: string,
-    slides?: link,
-    video?: link,
-} & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
 export type CalendarItem =
     AssignmentCalendarItem |
     AwayCalendarItem |
     EventCalendarItem |
     HolidayCalendarItem |
-    LectureCalendarItem |
-    OfficeHourCalendarItem |
-    StudioCalendarItem;
+    LectureAndStudioCalendarItem |
+    OfficeHourCalendarItem
 
 export class CourseCalendarStore {
     /**
@@ -97,7 +90,7 @@ export class CourseCalendarStore {
      */
     datesOfInstruction = {
         start: DateTime.fromFormat('Mon 2022-03-28', 'EEE yyyy-MM-dd'),  // Should be a Monday
-        end:   DateTime.fromFormat('Fri 2022-06-10', 'EEE yyyy-MM-dd')   // Should be a Friday
+        end: DateTime.fromFormat('Fri 2022-06-10', 'EEE yyyy-MM-dd')   // Should be a Friday
     };
 
     /**
@@ -107,31 +100,31 @@ export class CourseCalendarStore {
         return (
             // Obtain an interval for the dates of instruction
             this.datesOfInstruction.start.until(
-                this.datesOfInstruction.end.plus({days: 1})
+                this.datesOfInstruction.end.plus({ days: 1 })
             )
-            // Split the interval into weeks
-            .splitBy({weeks: 1})
-            // Convert each week interval into a list of dates
-            .map(
-                weekIntervalCurrent => weekIntervalCurrent.splitBy({days: 1}).map(
-                    interval => interval.start
-                )
-                // Keep only weekdays
-                .filter(
-                    date => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(date.weekdayShort)
-                )
-            )
-            // Convert each list of dates into a CalendarWeek
-            .map(
-                weekListDatesCurrent => ({
-                    // Convert each date into a CalendarDate
-                    days: weekListDatesCurrent.map(
-                        dayCurrent => ({
-                            date: dayCurrent
-                        }) as CalendarDate
+                // Split the interval into weeks
+                .splitBy({ weeks: 1 })
+                // Convert each week interval into a list of dates
+                .map(
+                    weekIntervalCurrent => weekIntervalCurrent.splitBy({ days: 1 }).map(
+                        interval => interval.start
                     )
-                }) as CalendarWeek
-            )
+                        // Keep only weekdays
+                        .filter(
+                            date => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(date.weekdayShort)
+                        )
+                )
+                // Convert each list of dates into a CalendarWeek
+                .map(
+                    weekListDatesCurrent => ({
+                        // Convert each date into a CalendarDate
+                        days: weekListDatesCurrent.map(
+                            dayCurrent => ({
+                                date: dayCurrent
+                            }) as CalendarDate
+                        )
+                    }) as CalendarWeek
+                )
         )
     }
 
@@ -524,7 +517,7 @@ export class CourseCalendarStore {
         const store = useAppStore();
 
         return store.courseCalendar.calendarItems.filter(
-            function(calendarItem) {
+            function (calendarItem) {
                 if ('date' in calendarItem) {
                     if (!calendarItem.date.equals(calendarDate.date)) {
                         return false;

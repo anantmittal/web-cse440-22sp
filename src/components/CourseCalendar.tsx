@@ -23,9 +23,8 @@ import {
     BaseCalendarItemTimeAndLocation,
     EventCalendarItem,
     HolidayCalendarItem,
-    LectureCalendarItem,
+    LectureAndStudioCalendarItem,
     OfficeHourCalendarItem,
-    StudioCalendarItem,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
@@ -225,7 +224,7 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                 (
                     store.courseCalendar.getCalendarItems(
                         calendarDate, 'lecture'
-                    ) as LectureCalendarItem[]
+                    ) as LectureAndStudioCalendarItem[]
                 )
                     .map(
                         calendarItem => (
@@ -309,7 +308,7 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                 (
                     store.courseCalendar.getCalendarItems(
                         calendarDate, 'studio'
-                    ) as StudioCalendarItem[]
+                    ) as LectureAndStudioCalendarItem[]
                 )
                     .map(
                         calendarItem => (
