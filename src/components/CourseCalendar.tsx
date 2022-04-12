@@ -23,9 +23,8 @@ import {
     BaseCalendarItemTimeAndLocation,
     EventCalendarItem,
     HolidayCalendarItem,
-    LectureCalendarItem,
+    LectureAndStudioCalendarItem,
     OfficeHourCalendarItem,
-    StudioCalendarItem,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
@@ -211,7 +210,7 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                 (
                     store.courseCalendar.getCalendarItems(
                         calendarDate, 'lecture'
-                    ) as LectureCalendarItem[]
+                    ) as LectureAndStudioCalendarItem[]
                 )
                 .map(
                     calendarItem => (
@@ -289,7 +288,7 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                 (
                     store.courseCalendar.getCalendarItems(
                         calendarDate, 'studio'
-                    ) as StudioCalendarItem[]
+                    ) as LectureAndStudioCalendarItem[]
                 )
                 .map(
                     calendarItem => (
@@ -314,6 +313,11 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                             {calendarItem.video != undefined &&
                                 <React.Fragment>
                                     [<a href={calendarItem.video}>video</a>]
+                                </React.Fragment>
+                            }
+                            {(calendarItem.slides != undefined || calendarItem.video != undefined) &&
+                                <React.Fragment>
+                                    <br/>
                                 </React.Fragment>
                             }
                         </Box>

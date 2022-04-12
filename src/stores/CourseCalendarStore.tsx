@@ -63,8 +63,8 @@ export type HolidayCalendarItem = {
     title: string,
 } & BaseCalendarItemDates;
 
-export type LectureCalendarItem = {
-    type: 'lecture',
+export type LectureAndStudioCalendarItem = {
+    type: 'lecture' | 'studio',
     title: string,
     slides?: link,
     video?: link,
@@ -75,21 +75,15 @@ export type OfficeHourCalendarItem = {
     title: string,
 } & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
 
-export type StudioCalendarItem = {
-    type: 'studio',
-    title: string,
-    slides?: link,
-    video?: link,
-} & BaseCalendarItemDates & BaseCalendarItemTimeAndLocation;
+
 
 export type CalendarItem =
     AssignmentCalendarItem |
     AwayCalendarItem |
     EventCalendarItem |
     HolidayCalendarItem |
-    LectureCalendarItem |
-    OfficeHourCalendarItem |
-    StudioCalendarItem;
+    LectureAndStudioCalendarItem |
+    OfficeHourCalendarItem;
 
 export class CourseCalendarStore {
     /**
@@ -97,7 +91,7 @@ export class CourseCalendarStore {
      */
     datesOfInstruction = {
         start: DateTime.fromFormat('Mon 2022-03-28', 'EEE yyyy-MM-dd'),  // Should be a Monday
-        end:   DateTime.fromFormat('Fri 2022-06-10', 'EEE yyyy-MM-dd')   // Should be a Friday
+        end: DateTime.fromFormat('Fri 2022-06-10', 'EEE yyyy-MM-dd')   // Should be a Friday
     };
 
     /**
