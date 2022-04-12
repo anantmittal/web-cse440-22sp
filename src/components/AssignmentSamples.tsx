@@ -44,7 +44,7 @@ export const AssignmentSamples: FunctionComponent<AssignmentSamplesProps> = (pro
             </p>
             {
                 store.courseInformation.projectSamples.map(
-                    sampleCurrent => (
+                    sampleCurrent =>  (renderMilestone in sampleCurrent.samples) && (
                         <React.Fragment>
                             <p>
                                 <GeneratedLink href={sampleCurrent.samples[renderMilestone]}>
