@@ -141,6 +141,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/backtrack/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491667/',
+                '2b': 'https://canvas.uw.edu/files/90572601/',
             }
         },
         {
@@ -148,6 +149,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/bookwurm/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491675/',
+                '2b': 'https://canvas.uw.edu/files/90573013/',
             }
         },
         {
@@ -155,6 +157,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/dash/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491685/',
+                '2b': 'https://canvas.uw.edu/files/90573270/',
             }
         },
         {
@@ -162,6 +165,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/hermes/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491690/',
+                '2b': 'https://canvas.uw.edu/files/90573384/',
             }
         },
         {
@@ -169,6 +173,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/jasper/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491701/',
+                '2b': 'https://canvas.uw.edu/files/90573515/',
             }
         },
         {
@@ -176,6 +181,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/laundr/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491707/',
+                '2b': 'https://canvas.uw.edu/files/90578151/',
             }
         },
         {
@@ -183,6 +189,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/note/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491732/',
+                '2b': 'https://canvas.uw.edu/files/90578222/',
             }
         },
         {
@@ -190,6 +197,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/pawsitive/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491738/',
+                '2b': 'https://canvas.uw.edu/files/90578445/',
             }
         },
         {
@@ -197,6 +205,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/pilltender/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491745/',
+                '2b': 'https://canvas.uw.edu/files/90578818/',
             }
         },
         {
@@ -204,6 +213,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/19wi/assets/projects/seek/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491755/',
+                '2b': 'https://canvas.uw.edu/files/90579302/',
             }
         },
         {
@@ -211,6 +221,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17au/projects/simpark/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491761/',
+                '2b': 'https://canvas.uw.edu/files/90579345/',
             }
         },
         {
@@ -218,6 +229,7 @@ export class CourseInformationStore {
             link: 'https://courses.cs.washington.edu/courses/cse440/17wi/projects/wishingwell/',
             samples: {
                 '1c': 'https://canvas.uw.edu/files/90491772/',
+                '2b': 'https://canvas.uw.edu/files/90579418/',
             }
         }
     ]

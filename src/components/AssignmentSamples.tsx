@@ -21,6 +21,8 @@ export const AssignmentSamples: FunctionComponent<AssignmentSamplesProps> = (pro
         renderMilestone = '1c';
     } else if (props.milestone == '1c') {
         renderMilestone = '1c';
+    } else {
+        renderMilestone = props.milestone;
     }
 
     return (
