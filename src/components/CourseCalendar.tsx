@@ -373,7 +373,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item xs key={calendarDate.date.toFormat(DATE_FORMAT)}>
+        <Grid item key={calendarDate.date.toFormat(DATE_FORMAT)} xs={12} sm md>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
@@ -397,9 +397,7 @@ export const CourseCalendar: React.FunctionComponent = () => {
 
     return (
         <React.Fragment>
-            <Stack spacing={2}>
-                {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
-            </Stack>
+            {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
         </React.Fragment>
     );
 }
