@@ -104,12 +104,15 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightgreen",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                        <Box
+                            sx={{
+                                backgroundColor: "lightgreen",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                            key={calendarItem.title}
+                        >
                             {calendarItem.title}
                         </Box>
                     )
@@ -132,12 +135,15 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightpink",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                        <Box
+                            sx={{
+                                backgroundColor: "lightpink",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                            key={calendarItem.title}
+                        >
                             {calendarItem.title}
                         </Box>
                     )
@@ -160,11 +166,13 @@ function renderEventCalendarItems(calendarDate: CalendarDate) {
                 .map(
                     calendarItem => (
                         <Box sx={{
-                            backgroundColor: "lavender",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                                backgroundColor: "lavender",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                             key={calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                         </Box>
@@ -188,12 +196,15 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "orange",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                        <Box
+                            sx={{
+                                backgroundColor: "orange",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                            key={calendarItem.title}
+                        >
                             {calendarItem.title}
                         </Box>
                     )
@@ -215,12 +226,15 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightsalmon",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                        <Box
+                            sx={{
+                                backgroundColor: "lightsalmon",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                            key={calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                             {calendarItem.slides != undefined &&
@@ -264,12 +278,15 @@ function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightgoldenrodyellow",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                        <Box
+                            sx={{
+                                backgroundColor: "lightgoldenrodyellow",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                            key={calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                         </Box>
@@ -293,12 +310,15 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightblue",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}>
+                        <Box
+                            sx={{
+                                backgroundColor: "lightblue",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
+                            key={calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                             {calendarItem.slides != undefined &&
@@ -334,7 +354,7 @@ function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
         {'timeAndLocations' in calendarItem &&
             <React.Fragment>
                 {calendarItem.timeAndLocations.map(timeAndLocationCurrent => {
-                    return <React.Fragment>
+                    return <React.Fragment key={timeAndLocationCurrent}>
                         {timeAndLocationCurrent}<br/>
                     </React.Fragment>;
                 })}
@@ -359,7 +379,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item xs>
+        <Grid item xs key={calendarDate.date.toFormat(DATE_FORMAT)}>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
@@ -369,8 +389,10 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 }
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
+    // Assign Monday's date of every week as key
+    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT);
     return (
-        <Grid container width="100%" spacing={2}>
+        <Grid container width="100%" spacing={2} key={key}>
             {calendarWeekCurrent.days.map(renderCalendarDate)}
         </Grid>
     );
