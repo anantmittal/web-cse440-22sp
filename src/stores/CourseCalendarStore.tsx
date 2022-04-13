@@ -168,13 +168,15 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-12'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design of Everyday Things',
-            slides: 'https://canvas.uw.edu/files/90777092/',
+            slides: 'https://canvas.uw.edu/files/90865835',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aacc0966-8de9-4e87-99ca-ae750145f644',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-14'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Human Performance',
+            title: 'Design of Everyday Things',
+            slides: 'https://canvas.uw.edu/files/90865835',
         },
         {
             type: 'lecture',
