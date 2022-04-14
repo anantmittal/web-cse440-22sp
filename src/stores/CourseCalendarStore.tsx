@@ -177,6 +177,7 @@ export class CourseCalendarStore {
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design of Everyday Things',
             slides: 'https://canvas.uw.edu/files/90865835',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=98048542-47fc-47bb-af48-ae770141c8d5',
         },
         {
             type: 'lecture',
