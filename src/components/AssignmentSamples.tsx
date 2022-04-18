@@ -45,18 +45,28 @@ export const AssignmentSamples: FunctionComponent<AssignmentSamplesProps> = (pro
             {
                 store.courseInformation.projectSamples.map(
                     sampleCurrent => (
-                        <React.Fragment>
-                            <p>
-                                <GeneratedLink href={sampleCurrent.samples[renderMilestone]}>
-                                    {'Sample ' + props.milestone}
-                                </GeneratedLink>
-                                {' from '}
-                                {
-                                    (props.milestone == '1c') && 'the proposal that became '
-                                }
-                                <GeneratedLink href={sampleCurrent.link}>{sampleCurrent.name}</GeneratedLink>
-                            </p>
-                        </React.Fragment>
+                        // Ensure we have a sample for this project
+                        (renderMilestone in sampleCurrent.samples) &&
+                        // Render the sample
+                        (
+                            <React.Fragment
+                                // Generate a unique key using props.milestone.
+                                // Do not use renderMilestone because they may not be equal,
+                                // which could create a situation with non-unique keys.
+                                key={props.milestone + sampleCurrent.name}
+                            >
+                                <p>
+                                    <GeneratedLink href={sampleCurrent.samples[renderMilestone]}>
+                                        {'Sample ' + props.milestone}
+                                    </GeneratedLink>
+                                    {' from '}
+                                    {
+                                        (props.milestone == '1c') && 'the proposal that became '
+                                    }
+                                    <GeneratedLink href={sampleCurrent.link}>{sampleCurrent.name}</GeneratedLink>
+                                </p>
+                            </React.Fragment>
+                        )
                     )
                 )
             }
