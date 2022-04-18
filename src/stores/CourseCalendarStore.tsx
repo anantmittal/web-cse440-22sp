@@ -168,7 +168,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-12'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design of Everyday Things',
-            slides: 'https://canvas.uw.edu/files/90865835',
+            slides: 'https://canvas.uw.edu/files/90865835/',
             video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aacc0966-8de9-4e87-99ca-ae750145f644',
         },
         {
@@ -176,7 +176,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-14'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Design of Everyday Things',
-            slides: 'https://canvas.uw.edu/files/90865835',
+            slides: 'https://canvas.uw.edu/files/90865835/',
             video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=98048542-47fc-47bb-af48-ae770141c8d5',
         },
         {
@@ -184,18 +184,19 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-19'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Task Analysis',
+            slides: 'https://canvas.uw.edu/files/91040674/'
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-21'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Paper Prototyping and Testing',
+            title: 'Models and Human Performance',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-26'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
-            title: 'Storyboarding',
+            title: 'Storyboarding, Paper Prototyping, and Testing',
         },
         {
             type: 'lecture',
