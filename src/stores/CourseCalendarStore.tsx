@@ -184,7 +184,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-19'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Task Analysis',
-            slides: 'https://canvas.uw.edu/files/91040674/'
+            slides: 'https://canvas.uw.edu/files/91098921/'
         },
         {
             type: 'lecture',
