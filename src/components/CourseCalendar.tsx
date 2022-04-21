@@ -105,12 +105,12 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                 .map(
                     calendarItem => (
                         <Box sx={{
-                                backgroundColor: "lightgreen",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                            backgroundColor: "lightgreen",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}
                         </Box>
