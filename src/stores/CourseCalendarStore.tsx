@@ -192,6 +192,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-21'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Models and Human Performance',
+            slides: 'https://canvas.uw.edu/files/91192666/',
         },
         {
             type: 'lecture',
