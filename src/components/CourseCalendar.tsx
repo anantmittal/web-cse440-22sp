@@ -31,7 +31,7 @@ import {
 // import GeneratedLink from "src/common/GeneratedLink";
 
 const DATE_FORMAT = 'EEE MMM d';
-// const DATE_FORMAT_WITH_DAY = 'EEE MMM d';
+const DATE_FORMAT_WITH_YEAR = 'EEE MMM d yyyy';
 
 // function renderAssignment(assignmentCurrent: CalendarAssignment) {
 //     return (
@@ -111,7 +111,7 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                            key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}
                         </Box>
@@ -142,7 +142,7 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                            key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}
                         </Box>
@@ -165,13 +165,14 @@ function renderEventCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
+                        <Box
+                            sx={{
                                 backgroundColor: "lavender",
                                 fontSize: "small",
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                             key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -203,7 +204,7 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                            key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}
                         </Box>
@@ -233,7 +234,7 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                            key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -285,7 +286,7 @@ function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                            key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -317,7 +318,7 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                                 borderRadius: ".25rem",
                                 padding: "4px",
                             }}
-                            key={calendarItem.title}
+                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -390,7 +391,7 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
     // Assign Monday's date of every week as key
-    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT);
+    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT_WITH_YEAR);
     return (
         <Grid container width="100%" spacing={2} key={key}>
             {calendarWeekCurrent.days.map(renderCalendarDate)}
