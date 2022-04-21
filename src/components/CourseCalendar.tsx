@@ -134,14 +134,13 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
-                                backgroundColor: "lightpink",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box sx={{
+                            backgroundColor: "lightpink",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}
                         </Box>
@@ -164,14 +163,13 @@ function renderEventCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
-                                backgroundColor: "lavender",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box sx={{
+                            backgroundColor: "lavender",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -196,14 +194,13 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
-                                backgroundColor: "orange",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box sx={{
+                            backgroundColor: "orange",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}
                         </Box>
@@ -226,14 +223,13 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
-                                backgroundColor: "lightsalmon",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box sx={{
+                            backgroundColor: "lightsalmon",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -278,14 +274,13 @@ function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
-                                backgroundColor: "lightgoldenrodyellow",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box sx={{
+                            backgroundColor: "lightgoldenrodyellow",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -310,14 +305,13 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
-                                backgroundColor: "lightblue",
-                                fontSize: "small",
-                                borderRadius: ".25rem",
-                                padding: "4px",
-                            }}
-                            key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box sx={{
+                            backgroundColor: "lightblue",
+                            fontSize: "small",
+                            borderRadius: ".25rem",
+                            padding: "4px",
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
