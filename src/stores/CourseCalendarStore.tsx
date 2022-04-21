@@ -184,13 +184,15 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-19'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Task Analysis',
-            slides: 'https://canvas.uw.edu/files/91040674/'
+            slides: 'https://canvas.uw.edu/files/91098921/',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=218aab5f-7e6c-48e7-bb73-ae7d012cc673',
         },
         {
             type: 'lecture',
             date: DateTime.fromISO('2022-04-21'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Models and Human Performance',
+            slides: 'https://canvas.uw.edu/files/91192666/',
         },
         {
             type: 'lecture',
