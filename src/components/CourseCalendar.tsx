@@ -104,8 +104,7 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box
-                            sx={{
+                        <Box sx={{
                                 backgroundColor: "lightgreen",
                                 fontSize: "small",
                                 borderRadius: ".25rem",
