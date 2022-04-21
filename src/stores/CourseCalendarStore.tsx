@@ -193,6 +193,7 @@ export class CourseCalendarStore {
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Models and Human Performance',
             slides: 'https://canvas.uw.edu/files/91192666/',
+            video: 'https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8a2421f5-305e-4789-8129-ae7e01437b20',
         },
         {
             type: 'lecture',
