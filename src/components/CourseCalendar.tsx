@@ -31,19 +31,35 @@ import {
 // import GeneratedLink from "src/common/GeneratedLink";
 
 const DATE_FORMAT = 'EEE MMM d';
-const DATE_FORMAT_WITH_YEAR = 'EEE MMM d yyyy';
+
+
+function keyCalendarDate(calendarDate: CalendarDate): string {
+    return calendarDate.date.toFormat(DATE_FORMAT);
+}
 
 
 function keyCalendarItem(calendarDate: CalendarDate, calendarItem: CalendarItem): string {
     let key = "";
 
-    key += calendarDate.date.toFormat(DATE_FORMAT);
+    key += keyCalendarDate(calendarDate);
     key += ":"
     key += calendarItem.type
     key += ":"
     key += calendarItem.title
 
     return key
+}
+
+function keyCalendarWeek(calendarWeek: CalendarWeek): string {
+    // Key based on the date of Monday
+
+    let key = "";
+
+    key += "Week Of";
+    key += ":"
+    key += keyCalendarDate(calendarWeek.days[0]);
+
+    return key;
 }
 
 function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
@@ -310,9 +326,13 @@ function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
         {'timeAndLocations' in calendarItem &&
             <React.Fragment>
                 {calendarItem.timeAndLocations.map(timeAndLocationCurrent => {
-                    return <React.Fragment key={timeAndLocationCurrent}>
-                        {timeAndLocationCurrent}<br/>
-                    </React.Fragment>;
+                    return (
+                        <React.Fragment
+                            key={timeAndLocationCurrent}
+                        >
+                            {timeAndLocationCurrent}<br/>
+                        </React.Fragment>
+                    );
                 })}
             </React.Fragment>
         }
@@ -335,7 +355,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item key={calendarDate.date.toFormat(DATE_FORMAT)} xs={12} sm md>
+        <Grid item xs={12} sm md>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
@@ -345,11 +365,17 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 }
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
-    // Assign Monday's date of every week as key
-    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT_WITH_YEAR);
     return (
-        <Grid container width="100%" spacing={2} key={key}>
-            {calendarWeekCurrent.days.map(renderCalendarDate)}
+        <Grid container width="100%" spacing={2}>
+            {calendarWeekCurrent.days.map(calendarDateCurrent => {
+                return (
+                    <React.Fragment
+                        key={keyCalendarDate(calendarDateCurrent)}
+                    >
+                        {renderCalendarDate(calendarDateCurrent)}
+                    </React.Fragment>
+                )
+            })}
         </Grid>
     );
 }
@@ -359,7 +385,15 @@ export const CourseCalendar: React.FunctionComponent = () => {
 
     return (
         <React.Fragment>
-            {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
+            {store.courseCalendar.calendarWeeks.map(calendarWeekCurrent => {
+                return (
+                    <React.Fragment
+                        key={keyCalendarWeek(calendarWeekCurrent)}
+                    >
+                        {renderCalendarWeek(calendarWeekCurrent)}
+                    </React.Fragment>
+                )
+            })}
         </React.Fragment>
     );
 }
