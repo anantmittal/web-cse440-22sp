@@ -355,12 +355,12 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <React.Fragment>
+        <Box>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
             {renderCalendarItems(calendarDate)}
-        </React.Fragment>
+        </Box>
     );
 }
 
