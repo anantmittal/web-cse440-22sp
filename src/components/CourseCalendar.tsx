@@ -387,15 +387,17 @@ export const CourseCalendar: React.FunctionComponent = () => {
 
     return (
         <React.Fragment>
-            {store.courseCalendar.calendarWeeks.map(calendarWeekCurrent => {
-                return (
-                    <React.Fragment
-                        key={keyCalendarWeek(calendarWeekCurrent)}
-                    >
-                        {renderCalendarWeek(calendarWeekCurrent)}
-                    </React.Fragment>
-                )
-            })}
+            <Stack spacing={2}>
+                {store.courseCalendar.calendarWeeks.map(calendarWeekCurrent => {
+                    return (
+                        <React.Fragment
+                            key={keyCalendarWeek(calendarWeekCurrent)}
+                        >
+                            {renderCalendarWeek(calendarWeekCurrent)}
+                        </React.Fragment>
+                    )
+                })}
+            </Stack>
         </React.Fragment>
     );
 }
