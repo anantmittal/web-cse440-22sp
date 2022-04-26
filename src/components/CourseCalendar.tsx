@@ -33,63 +33,6 @@ import {
 const DATE_FORMAT = 'EEE MMM d';
 const DATE_FORMAT_WITH_YEAR = 'EEE MMM d yyyy';
 
-// function renderAssignment(assignmentCurrent: CalendarAssignment) {
-//     return (
-//         <Box>{assignmentCurrent}</Box>
-//     );
-// }
-//
-// function renderAssignments(calendarDateCurrent: CalendarDate) {
-//     if (!calendarDateCurrent.assignments) {
-//         return null;
-//     }
-//
-//     return (
-//         <Box>{calendarDateCurrent.assignments.map(renderAssignment)}</Box>
-//     );
-// }
-
-// function renderCalendarDateCurrent(calendarDateCurrent: CalendarDate) {
-//     const [expanded, setExpanded] = React.useState<boolean>(
-//         true
-//         // calendarDateCurrent.date.diffNow("days").days >= -1
-//     );
-//
-//     const toggleExpanded = () => {
-//         setExpanded(!expanded);
-//     };
-//
-//     let rotation;
-//     if (expanded) {
-//         rotation = "rotate(180deg)";
-//     } else {
-//         rotation = "rotate(0deg)";
-//     }
-//
-//     return (
-//         <Grid item container key={calendarDateCurrent.date.toISODate()}>
-//             <Grid item xs={2}>
-//                 <h2 id={anchorText(calendarDateCurrent.date.toFormat(DATE_FORMAT))}>
-//                     {calendarDateCurrent.date.toFormat(DATE_FORMAT)}
-//                 </h2>
-//             </Grid>
-//             <Grid item xs={10}>
-//                 <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-//                     <h2 id={anchorText(calendarDateCurrent.title)}>{calendarDateCurrent.title}</h2>
-//                     <ExpandCircleDownOutlined onClick={toggleExpanded} sx={{ transform: rotation }} />
-//                 </Box>
-//                 <Collapse in={expanded} mountOnEnter unmountOnExit>
-//                     {renderAssignments(calendarDateCurrent)}
-//                     {/*{renderVirtual(calendarDateCurrent)}*/}
-//                     {/*{renderAwayJames(calendarDateCurrent)}*/}
-//                     {/*{renderGuest(calendarDateCurrent)}*/}
-//                     {/*{renderContent(calendarDateCurrent)}*/}
-//                     {/*{renderAdditionalResources(calendarDateCurrent)}*/}
-//                 </Collapse>
-//             </Grid>
-//         </Grid>
-//     );
-// }
 
 function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
