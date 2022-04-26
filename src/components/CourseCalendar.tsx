@@ -31,7 +31,7 @@ import {
 // import GeneratedLink from "src/common/GeneratedLink";
 
 const DATE_FORMAT = 'EEE MMM d';
-// const DATE_FORMAT_WITH_DAY = 'EEE MMM d';
+const DATE_FORMAT_WITH_YEAR = 'EEE MMM d yyyy';
 
 // function renderAssignment(assignmentCurrent: CalendarAssignment) {
 //     return (
@@ -109,7 +109,9 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}
                         </Box>
                     )
@@ -137,7 +139,9 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}
                         </Box>
                     )
@@ -164,7 +168,9 @@ function renderEventCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                         </Box>
@@ -193,7 +199,9 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}
                         </Box>
                     )
@@ -220,7 +228,9 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                             {calendarItem.slides != undefined &&
@@ -269,7 +279,9 @@ function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                         </Box>
@@ -298,7 +310,9 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                             fontSize: "small",
                             borderRadius: ".25rem",
                             padding: "4px",
-                        }}>
+                        }}
+                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
                             {calendarItem.slides != undefined &&
@@ -334,7 +348,7 @@ function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
         {'timeAndLocations' in calendarItem &&
             <React.Fragment>
                 {calendarItem.timeAndLocations.map(timeAndLocationCurrent => {
-                    return <React.Fragment>
+                    return <React.Fragment key={timeAndLocationCurrent}>
                         {timeAndLocationCurrent}<br/>
                     </React.Fragment>;
                 })}
@@ -359,7 +373,7 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item xs>
+        <Grid item xs key={calendarDate.date.toFormat(DATE_FORMAT)}>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
@@ -369,8 +383,10 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 }
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
+    // Assign Monday's date of every week as key
+    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT_WITH_YEAR);
     return (
-        <Grid container width="100%" spacing={2}>
+        <Grid container width="100%" spacing={2} key={key}>
             {calendarWeekCurrent.days.map(renderCalendarDate)}
         </Grid>
     );
