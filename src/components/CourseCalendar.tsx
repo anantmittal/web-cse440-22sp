@@ -366,19 +366,46 @@ function renderCalendarDate(calendarDate: CalendarDate) {
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
     return (
-        <Grid container width="100%" spacing={2}>
-            {calendarWeekCurrent.days.map(calendarDateCurrent => {
-                return (
-                    <React.Fragment
-                        key={keyCalendarDate(calendarDateCurrent)}
-                    >
-                        <Grid item xs={12} sm md>
-                            {renderCalendarDate(calendarDateCurrent)}
-                        </Grid>
-                    </React.Fragment>
-                )
-            })}
-        </Grid>
+        <React.Fragment>
+            {/* Sizes >= md render a week as a row in a calendar */}
+            <Box
+                sx={{
+                    display: { xs: "none", md: "block"}
+                }}
+            >
+                <Grid container width="100%" spacing={2}>
+                    {calendarWeekCurrent.days.map(calendarDateCurrent => {
+                        return (
+                            <React.Fragment
+                                key={keyCalendarDate(calendarDateCurrent)}
+                            >
+                                <Grid item xs={12} sm md>
+                                    {renderCalendarDate(calendarDateCurrent)}
+                                </Grid>
+                            </React.Fragment>
+                        )
+                    })}
+                </Grid>
+            </Box>
+            {/* Sizes < md render a week as a stack */}
+            <Box
+                sx={{
+                    display: { xs: "block", md: "none"}
+                }}
+            >
+                <Stack width="100%">
+                    {calendarWeekCurrent.days.map(calendarDateCurrent => {
+                        return (
+                            <React.Fragment
+                                key={keyCalendarDate(calendarDateCurrent)}
+                            >
+                                {renderCalendarDate(calendarDateCurrent)}
+                            </React.Fragment>
+                        )
+                    })}
+                </Stack>
+            </Box>
+        </React.Fragment>
     );
 }
 
