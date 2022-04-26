@@ -355,12 +355,12 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item xs={12} sm md>
+        <React.Fragment>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
             {renderCalendarItems(calendarDate)}
-        </Grid>
+        </React.Fragment>
     );
 }
 
@@ -372,7 +372,9 @@ function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
                     <React.Fragment
                         key={keyCalendarDate(calendarDateCurrent)}
                     >
-                        {renderCalendarDate(calendarDateCurrent)}
+                        <Grid item xs={12} sm md>
+                            {renderCalendarDate(calendarDateCurrent)}
+                        </Grid>
                     </React.Fragment>
                 )
             })}
