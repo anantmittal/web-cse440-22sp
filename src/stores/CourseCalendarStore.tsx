@@ -200,6 +200,7 @@ export class CourseCalendarStore {
             date: DateTime.fromISO('2022-04-26'),
             timeAndLocation: LECTURE_TIME_AND_LOCATION,
             title: 'Storyboarding, Paper Prototyping, and Testing',
+            slides: 'https://canvas.uw.edu/files/91400789/',
         },
         {
             type: 'lecture',
