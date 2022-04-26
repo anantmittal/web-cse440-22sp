@@ -25,71 +25,42 @@ import {
     HolidayCalendarItem,
     LectureCalendarItem,
     OfficeHourCalendarItem,
-    StudioCalendarItem,
+    StudioCalendarItem, CalendarItem,
 } from 'src/stores/CourseCalendarStore';
 
 // import GeneratedLink from "src/common/GeneratedLink";
 
 const DATE_FORMAT = 'EEE MMM d';
-const DATE_FORMAT_WITH_YEAR = 'EEE MMM d yyyy';
 
-// function renderAssignment(assignmentCurrent: CalendarAssignment) {
-//     return (
-//         <Box>{assignmentCurrent}</Box>
-//     );
-// }
-//
-// function renderAssignments(calendarDateCurrent: CalendarDate) {
-//     if (!calendarDateCurrent.assignments) {
-//         return null;
-//     }
-//
-//     return (
-//         <Box>{calendarDateCurrent.assignments.map(renderAssignment)}</Box>
-//     );
-// }
 
-// function renderCalendarDateCurrent(calendarDateCurrent: CalendarDate) {
-//     const [expanded, setExpanded] = React.useState<boolean>(
-//         true
-//         // calendarDateCurrent.date.diffNow("days").days >= -1
-//     );
-//
-//     const toggleExpanded = () => {
-//         setExpanded(!expanded);
-//     };
-//
-//     let rotation;
-//     if (expanded) {
-//         rotation = "rotate(180deg)";
-//     } else {
-//         rotation = "rotate(0deg)";
-//     }
-//
-//     return (
-//         <Grid item container key={calendarDateCurrent.date.toISODate()}>
-//             <Grid item xs={2}>
-//                 <h2 id={anchorText(calendarDateCurrent.date.toFormat(DATE_FORMAT))}>
-//                     {calendarDateCurrent.date.toFormat(DATE_FORMAT)}
-//                 </h2>
-//             </Grid>
-//             <Grid item xs={10}>
-//                 <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-//                     <h2 id={anchorText(calendarDateCurrent.title)}>{calendarDateCurrent.title}</h2>
-//                     <ExpandCircleDownOutlined onClick={toggleExpanded} sx={{ transform: rotation }} />
-//                 </Box>
-//                 <Collapse in={expanded} mountOnEnter unmountOnExit>
-//                     {renderAssignments(calendarDateCurrent)}
-//                     {/*{renderVirtual(calendarDateCurrent)}*/}
-//                     {/*{renderAwayJames(calendarDateCurrent)}*/}
-//                     {/*{renderGuest(calendarDateCurrent)}*/}
-//                     {/*{renderContent(calendarDateCurrent)}*/}
-//                     {/*{renderAdditionalResources(calendarDateCurrent)}*/}
-//                 </Collapse>
-//             </Grid>
-//         </Grid>
-//     );
-// }
+function keyCalendarDate(calendarDate: CalendarDate): string {
+    return calendarDate.date.toFormat(DATE_FORMAT);
+}
+
+
+function keyCalendarItem(calendarDate: CalendarDate, calendarItem: CalendarItem): string {
+    let key = "";
+
+    key += keyCalendarDate(calendarDate);
+    key += ":"
+    key += calendarItem.type
+    key += ":"
+    key += calendarItem.title
+
+    return key
+}
+
+function keyCalendarWeek(calendarWeek: CalendarWeek): string {
+    // Key based on the date of Monday
+
+    let key = "";
+
+    key += "Week Of";
+    key += ":"
+    key += keyCalendarDate(calendarWeek.days[0]);
+
+    return key;
+}
 
 function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
     const store = useAppStore();
@@ -104,13 +75,14 @@ function renderAssignmentCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightgreen",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "lightgreen",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}
                         </Box>
@@ -134,13 +106,14 @@ function renderAwayCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightpink",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "lightpink",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}
                         </Box>
@@ -163,13 +136,14 @@ function renderEventCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lavender",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "lavender",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -194,13 +168,14 @@ function renderHolidayCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "orange",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "orange",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}
                         </Box>
@@ -223,13 +198,14 @@ function renderLectureCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightsalmon",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "lightsalmon",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -274,13 +250,14 @@ function renderOfficeHourCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightgoldenrodyellow",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "lightgoldenrodyellow",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -305,13 +282,14 @@ function renderSectionCalendarItems(calendarDate: CalendarDate) {
                 )
                 .map(
                     calendarItem => (
-                        <Box sx={{
-                            backgroundColor: "lightblue",
-                            fontSize: "small",
-                            borderRadius: ".25rem",
-                            padding: "4px",
-                        }}
-                        key={calendarDate.date.toFormat(DATE_FORMAT) + calendarItem.title}
+                        <Box
+                            key={keyCalendarItem(calendarDate, calendarItem)}
+                            sx={{
+                                backgroundColor: "lightblue",
+                                fontSize: "small",
+                                borderRadius: ".25rem",
+                                padding: "4px",
+                            }}
                         >
                             {calendarItem.title}<br/>
                             {renderTimeAndLocation(calendarItem)}
@@ -348,9 +326,13 @@ function renderTimeAndLocation(calendarItem: BaseCalendarItemTimeAndLocation) {
         {'timeAndLocations' in calendarItem &&
             <React.Fragment>
                 {calendarItem.timeAndLocations.map(timeAndLocationCurrent => {
-                    return <React.Fragment key={timeAndLocationCurrent}>
-                        {timeAndLocationCurrent}<br/>
-                    </React.Fragment>;
+                    return (
+                        <React.Fragment
+                            key={timeAndLocationCurrent}
+                        >
+                            {timeAndLocationCurrent}<br/>
+                        </React.Fragment>
+                    );
                 })}
             </React.Fragment>
         }
@@ -373,22 +355,57 @@ function renderCalendarItems(calendarDate: CalendarDate) {
 
 function renderCalendarDate(calendarDate: CalendarDate) {
     return (
-        <Grid item xs key={calendarDate.date.toFormat(DATE_FORMAT)}>
+        <Box>
             <h3>
                 {calendarDate.date.toFormat(DATE_FORMAT)}
             </h3>
             {renderCalendarItems(calendarDate)}
-        </Grid>
+        </Box>
     );
 }
 
 function renderCalendarWeek(calendarWeekCurrent: CalendarWeek) {
-    // Assign Monday's date of every week as key
-    const key = calendarWeekCurrent.days[0].date.toFormat(DATE_FORMAT_WITH_YEAR);
     return (
-        <Grid container width="100%" spacing={2} key={key}>
-            {calendarWeekCurrent.days.map(renderCalendarDate)}
-        </Grid>
+        <React.Fragment>
+            {/* Sizes >= md render a week as a row in a calendar */}
+            <Box
+                sx={{
+                    display: { xs: "none", md: "block"}
+                }}
+            >
+                <Grid container width="100%" spacing={2}>
+                    {calendarWeekCurrent.days.map(calendarDateCurrent => {
+                        return (
+                            <React.Fragment
+                                key={keyCalendarDate(calendarDateCurrent)}
+                            >
+                                <Grid item xs={12} sm md>
+                                    {renderCalendarDate(calendarDateCurrent)}
+                                </Grid>
+                            </React.Fragment>
+                        )
+                    })}
+                </Grid>
+            </Box>
+            {/* Sizes < md render a week as a stack */}
+            <Box
+                sx={{
+                    display: { xs: "block", md: "none"}
+                }}
+            >
+                <Stack width="100%">
+                    {calendarWeekCurrent.days.map(calendarDateCurrent => {
+                        return (
+                            <React.Fragment
+                                key={keyCalendarDate(calendarDateCurrent)}
+                            >
+                                {renderCalendarDate(calendarDateCurrent)}
+                            </React.Fragment>
+                        )
+                    })}
+                </Stack>
+            </Box>
+        </React.Fragment>
     );
 }
 
@@ -398,7 +415,15 @@ export const CourseCalendar: React.FunctionComponent = () => {
     return (
         <React.Fragment>
             <Stack spacing={2}>
-                {store.courseCalendar.calendarWeeks.map(renderCalendarWeek)}
+                {store.courseCalendar.calendarWeeks.map(calendarWeekCurrent => {
+                    return (
+                        <React.Fragment
+                            key={keyCalendarWeek(calendarWeekCurrent)}
+                        >
+                            {renderCalendarWeek(calendarWeekCurrent)}
+                        </React.Fragment>
+                    )
+                })}
             </Stack>
         </React.Fragment>
     );
