@@ -20,11 +20,18 @@ export const styleButtonGroup = {
 No "# Assignments" header because each assignment provides its own H1
 */}
 
-<Grid container spacing={2}>
-    <Grid item xs={10}>
+<Grid
+    container
+    spacing={2}
+    sx={{
+        display: "flex",
+        flexWrap: "wrap-reverse",
+    }}
+>
+    <Grid item xs={12} md={10}>
         <Outlet />
     </Grid>
-    <Grid item xs={2}>
+    <Grid item xs={12} md={2}>
         <Box role="navigation" aria-label="Assignments Links">
             <ButtonGroup orientation="vertical" color="primary" sx={styleButtonGroup}>
                 <NavButton to="/assignments" match="equals">Overview</NavButton>
