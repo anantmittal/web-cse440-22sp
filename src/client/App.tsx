@@ -4,8 +4,13 @@ import {
     AppBar,
     Box,
     Container,
+    IconButton,
+    Menu,
+    MenuItem,
     Toolbar
 } from "@mui/material";
+
+import MenuIcon from '@mui/icons-material/Menu';
 
 import {
     Route,
@@ -27,13 +32,73 @@ import Assignment3 from "src/content/assignments/assignment3/Assignment3.mdx"
 import Assignment4 from "src/content/assignments/assignment4/Assignment4.mdx"
 
 export const App: React.FunctionComponent = () => {
+
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElNav(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
+
     return (
         <React.Fragment>
             <AppBar position="static">
                 <Container>
                     <Toolbar disableGutters>
-                        <Box display="flex" flexDirection="row" width="100%" role="navigation"
-                             aria-label="Primary Navigation Links">
+                        {/* Sizes < md render navigation with collapsible menu icon */}
+                        <Box
+                            sx={{
+                                flexGrow: 1,
+                                display: { xs: 'flex', md: 'none' },
+                            }}
+                            role="navigation"
+                            aria-label="Primary Navigation Links"
+                        >
+                            <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
+                            <IconButton
+                                size="large"
+                                aria-label="Assignments and Calendar Links"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                sx={{
+                                    display: { xs: 'block', md: 'none' },
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseNavMenu} disableGutters>
+                                    <NavButton to="/assignments">Assignments</NavButton>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu} disableGutters>
+                                    <NavButton to="/calendar">Calendar</NavButton>
+                                </MenuItem>
+                            </Menu>
+                        </Box>
+                        {/* Sizes >= md render navigation with buttons */}
+                        <Box
+                            sx={{
+                                display: { xs: 'none', md: 'flex' },
+                                flexDirection: "row"
+                            }}
+                            width="100%"
+                            role="navigation"
+                            aria-label="Primary Navigation Links">
                             <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
                             <Box flexGrow={1}/>
                             <NavButton to="/assignments">Assignments</NavButton>
