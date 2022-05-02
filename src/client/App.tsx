@@ -3,6 +3,7 @@ import * as React from "react";
 import {
     AppBar,
     Box,
+    Button,
     Container,
     IconButton,
     Menu,
@@ -13,6 +14,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 import {
+    Link as RouterLink,
     Route,
     Routes
 } from "react-router-dom";
@@ -96,15 +98,36 @@ export const App: React.FunctionComponent = () => {
                                 open={menuAnchorEl != null}
                                 onClose={handleCloseMenu}
                                 sx={{
+                                    // Ensures the menu disappears if display changes while menu is open
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                {/* TODO: The use of NavButtons here is problematic */}
-                                <MenuItem onClick={handleCloseMenu} disableGutters>
-                                    <NavButton to="/assignments">Assignments</NavButton>
+                                {/* TODO: The use of NavButtons here is problematic. */}
+                                <MenuItem
+                                    onClick={handleCloseMenu}
+                                    disableGutters
+                                    sx={{padding: "0"}}
+                                >
+                                    <Button
+                                        component={RouterLink}
+                                        sx={{justifyContent: "left", minHeight: "48px", width: "100%"}}
+                                        to="/assignments"
+                                    >
+                                        Assignments
+                                    </Button>
                                 </MenuItem>
-                                <MenuItem onClick={handleCloseMenu} disableGutters>
-                                    <NavButton to="/calendar">Calendar</NavButton>
+                                <MenuItem
+                                    onClick={handleCloseMenu}
+                                    disableGutters
+                                    sx={{padding: "0"}}
+                                >
+                                    <Button
+                                        component={RouterLink}
+                                        sx={{justifyContent: "left", minHeight: "48px", width: "100%"}}
+                                        to="/calendar"
+                                    >
+                                        Calendar
+                                    </Button>
                                 </MenuItem>
                             </Menu>
                         </Box>
