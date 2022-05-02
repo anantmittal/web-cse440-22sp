@@ -67,8 +67,9 @@ export const App: React.FunctionComponent = () => {
                         <Box
                             sx={{
                                 display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
+                                flexDirection: "row"
                             }}
+                            width="100%"
                             role="navigation"
                             aria-label="Primary"
                         >
@@ -76,7 +77,7 @@ export const App: React.FunctionComponent = () => {
                             <Box flexGrow={1}/>
                             <IconButton
                                 size="large"
-                                aria-label="Assignments and Calendar Links"
+                                aria-label="Menu"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
                                 onClick={handleOpenMenu}
@@ -92,7 +93,7 @@ export const App: React.FunctionComponent = () => {
                                     horizontal: 'left',
                                 }}
                                 keepMounted
-                                open={Boolean(menuAnchorEl)}
+                                open={menuAnchorEl != null}
                                 onClose={handleCloseMenu}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
