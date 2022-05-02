@@ -99,6 +99,7 @@ export const App: React.FunctionComponent = () => {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
+                                {/* TODO: The use of NavButtons here is problematic */}
                                 <MenuItem onClick={handleCloseMenu} disableGutters>
                                     <NavButton to="/assignments">Assignments</NavButton>
                                 </MenuItem>
