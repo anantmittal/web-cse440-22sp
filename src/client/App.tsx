@@ -56,7 +56,7 @@ export const App: React.FunctionComponent = () => {
                             }}
                             width="100%"
                             role="navigation"
-                            aria-label="Primary Navigation Links">
+                            aria-label="Primary">
                             <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
                             <Box flexGrow={1}/>
                             <NavButton to="/assignments">Assignments</NavButton>
@@ -69,7 +69,7 @@ export const App: React.FunctionComponent = () => {
                                 display: { xs: 'flex', md: 'none' },
                             }}
                             role="navigation"
-                            aria-label="Primary Navigation Links"
+                            aria-label="Primary"
                         >
                             <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
                             <IconButton
