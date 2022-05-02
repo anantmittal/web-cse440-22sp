@@ -33,14 +33,14 @@ import Assignment4 from "src/content/assignments/assignment4/Assignment4.mdx"
 
 export const App: React.FunctionComponent = () => {
 
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const [menuAnchorEl, setMenuAnchorEl] = React.useState<null | HTMLElement>(null);
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
+    const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setMenuAnchorEl(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
+    const handleCloseMenu = () => {
+        setMenuAnchorEl(null);
     };
 
     return (
@@ -56,7 +56,8 @@ export const App: React.FunctionComponent = () => {
                             }}
                             width="100%"
                             role="navigation"
-                            aria-label="Primary">
+                            aria-label="Primary"
+                        >
                             <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
                             <Box flexGrow={1}/>
                             <NavButton to="/assignments">Assignments</NavButton>
@@ -65,41 +66,42 @@ export const App: React.FunctionComponent = () => {
                         {/* Sizes < md render navigation with collapsible menu icon */}
                         <Box
                             sx={{
-                                flexGrow: 1,
                                 display: { xs: 'flex', md: 'none' },
+                                flexGrow: 1,
                             }}
                             role="navigation"
                             aria-label="Primary"
                         >
-                            <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
+                            <NavButton to="/" match="never">CSE 440 - Spring 2022</NavButton>
+                            <Box flexGrow={1}/>
                             <IconButton
                                 size="large"
                                 aria-label="Assignments and Calendar Links"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
+                                onClick={handleOpenMenu}
                                 color="inherit"
                             >
                                 <MenuIcon />
                             </IconButton>
                             <Menu
                                 id="menu-appbar"
-                                anchorEl={anchorElNav}
+                                anchorEl={menuAnchorEl}
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'left',
                                 }}
                                 keepMounted
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
+                                open={Boolean(menuAnchorEl)}
+                                onClose={handleCloseMenu}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                <MenuItem onClick={handleCloseNavMenu} disableGutters>
+                                <MenuItem onClick={handleCloseMenu} disableGutters>
                                     <NavButton to="/assignments">Assignments</NavButton>
                                 </MenuItem>
-                                <MenuItem onClick={handleCloseNavMenu} disableGutters>
+                                <MenuItem onClick={handleCloseMenu} disableGutters>
                                     <NavButton to="/calendar">Calendar</NavButton>
                                 </MenuItem>
                             </Menu>
