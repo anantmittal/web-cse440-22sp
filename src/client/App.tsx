@@ -48,6 +48,20 @@ export const App: React.FunctionComponent = () => {
             <AppBar position="static">
                 <Container>
                     <Toolbar disableGutters>
+                        {/* Sizes >= md render navigation with buttons */}
+                        <Box
+                            sx={{
+                                display: { xs: 'none', md: 'flex' },
+                                flexDirection: "row"
+                            }}
+                            width="100%"
+                            role="navigation"
+                            aria-label="Primary Navigation Links">
+                            <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
+                            <Box flexGrow={1}/>
+                            <NavButton to="/assignments">Assignments</NavButton>
+                            <NavButton to="/calendar">Calendar</NavButton>
+                        </Box>
                         {/* Sizes < md render navigation with collapsible menu icon */}
                         <Box
                             sx={{
@@ -89,20 +103,6 @@ export const App: React.FunctionComponent = () => {
                                     <NavButton to="/calendar">Calendar</NavButton>
                                 </MenuItem>
                             </Menu>
-                        </Box>
-                        {/* Sizes >= md render navigation with buttons */}
-                        <Box
-                            sx={{
-                                display: { xs: 'none', md: 'flex' },
-                                flexDirection: "row"
-                            }}
-                            width="100%"
-                            role="navigation"
-                            aria-label="Primary Navigation Links">
-                            <NavButton to="/" match="never">CSE 440 - Introduction to HCI - Spring 2022</NavButton>
-                            <Box flexGrow={1}/>
-                            <NavButton to="/assignments">Assignments</NavButton>
-                            <NavButton to="/calendar">Calendar</NavButton>
                         </Box>
                     </Toolbar>
                 </Container>
